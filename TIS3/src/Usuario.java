@@ -53,7 +53,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "userName=" + userName + " password=" + password;
+		return "userName=" + userName + "; password=" + password;
 	}
 
 }
