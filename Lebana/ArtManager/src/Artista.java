@@ -1,4 +1,6 @@
-public class Artista {
+import java.io.IOException;
+
+public class Artista implements Entidade{
 private String nomeArtista;
 private String telefone;
 private String email;
@@ -31,6 +33,26 @@ public Artista(String nomeArtista, String telefone, String email) {
 @Override
 public String toString () {
 return "nome: "+nomeArtista+" telefone: "+telefone+" email: "+email;
+}
+@Override
+public void setId(int codigo) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public int getId() {
+	// TODO Auto-generated method stub
+	return 0;
+}
+@Override
+public byte[] getByteArray() throws IOException {
+	// TODO Auto-generated method stub
+	return null;
+}
+@Override
+public void setByteArray(byte[] b) throws IOException {
+	// TODO Auto-generated method stub
+	
 }
 
 

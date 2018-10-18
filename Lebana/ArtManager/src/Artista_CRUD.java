@@ -2,24 +2,22 @@
 
 import java.util.Scanner;
 
-public class Livros_CRUD {
+public class Artista_CRUD {
 
     private static Scanner console = new Scanner(System.in);
-    private static Arquivo<Livro> arqArtistas;
+    private static Arquivo<Artista> arqArtistas;
 
-    /**
-     * Método principal, cujo objetivo é criar uma interface para o usuário
-     */
+    
     public static void main(String[] args) {
 
         try {
 
-            arqArtistas = new Arquivo<>(Livro.class.getConstructor(), "listaDeArtistas.txt");
+            arqArtistas = new Arquivo<>(Artista.class.getConstructor(), "listaDeArtistas.txt");
             
             // menu
            int opcao;
            do {
-               System.out.println("\n\nGEST�O DE ARTISTAS");
+               System.out.println("\n\nGESTAO DE ARTISTAS");
                System.out.println("-----------------------------\n");
                System.out.println("1 - Listar");
                System.out.println("2 - Incluir");
@@ -38,7 +36,7 @@ public class Livros_CRUD {
                    case 5: buscaArtista(); break;
 
                    case 0: break;
-                   default: System.out.println("Opção inválida");
+                   default: System.out.println("Opcao invalida");
                }
                
            } while(opcao!=0);
@@ -62,24 +60,24 @@ public class Livros_CRUD {
    
    public static void cadastraArtista() throws Exception {
        
-       String titulo;
-       String autor;
-       float  preco;
+       String nomeArtista;
+       String telefone;
+       String  email;
        
-       System.out.println("\nINCLUSÃO DE LIVRO");
-       System.out.print("Título: ");
-       titulo = console.nextLine();
-       System.out.print("Autor: ");
-       autor = console.nextLine();
-       System.out.print("Preço: ");
-       preco = Float.parseFloat(console.nextLine());
+       System.out.println("\nINCLUSAO DE ARTISTA");
+       System.out.print("Nome: ");
+       nomeArtista = console.nextLine();
+       System.out.print("Email: ");
+       email = console.nextLine();
+       System.out.print("Telefone: ");
+       telefone = console.nextLine();
        
-       System.out.print("\nConfirma inclusão? ");
+       System.out.print("\nConfirma inclusao? ");
        char confirma = console.nextLine().charAt(0);
        if(confirma=='s' || confirma=='S') {
-           Livro obj = new Livro(-1, titulo, autor, preco);
+           Artista obj = new Artista(email, nomeArtista, telefone);
            int id = arqArtistas.incluir(obj);
-           System.out.println("Livro incluído com ID: "+id);
+           System.out.println("Artista incluido com ID: "+id);
        }
 
        pausa();
@@ -88,51 +86,47 @@ public class Livros_CRUD {
    
    public static void atualizaArtista() throws Exception {
        
-       System.out.println("\nALTERAÇÃO DE LIVRO");
+       System.out.println("\nATUALIZACAO DE ARTISTA");
 
        int id;
-       System.out.print("ID do livro: ");
+       System.out.print("ID do artista: ");
        id = Integer.valueOf(console.nextLine());
        if(id <=0) 
            return;
        
-       Livro obj;
-       if( (obj = (Livro)arqArtistas.buscar(id))!=null ) {
+       Artista obj;
+       if( (obj = (Artista)arqArtistas.buscar(id))!=null ) {
             System.out.println(obj);
             
-            String titulo;
-            String autor;
-            float  preco;
+            String email;
+            String nomeArtista;
+            String  telefone;
             
-            System.out.print("\nNovo título: ");
-            titulo = console.nextLine();
-            System.out.print("Novo autor: ");
-            autor = console.nextLine();
-            System.out.print("Novo preço: ");
-            String auxPreco = console.nextLine();
-            if(auxPreco.compareTo("")==0)
-                preco=-1f;
-            else
-                preco = Float.parseFloat(auxPreco);
+            System.out.print("\nNome atualizado: ");
+            nomeArtista = console.nextLine();
+            System.out.print("Novo telefone: ");
+            telefone = console.nextLine();
+            System.out.print("Novo email: ");
+            email = console.nextLine(); 
 
-            if(titulo.length()>0 || autor.length()>0 || preco>=0) {
-                System.out.print("\nConfirma alteração? ");
+            if(nomeArtista.length()>0 || telefone.length()>0 || email.length()>0) {
+                System.out.print("\nConfirma alteracao? ");
                 char confirma = console.nextLine().charAt(0);
                 if(confirma=='s' || confirma=='S') {
 
-                obj.titulo = (titulo.length()>0 ? titulo : obj.titulo);
-                obj.autor = (autor.length()>0 ? autor : obj.autor);
-                obj.preco = (preco>=0?preco:obj.preco);
+                obj.setNomeArtista((nomeArtista.length()>0 ? nomeArtista : obj.getNomeArtista())) ;
+                obj.setTelefone((telefone.length()>0 ? telefone : obj.telefone));
+                obj.setEmail((email.length()>0 ? email : obj.email));
 
                 if( arqArtistas.alterar(obj) ) 
-                        System.out.println("Livro alterado.");
+                        System.out.println("Dados alterados.");
                     else
-                        System.out.println("Livro não pode ser alterado.");
+                        System.out.println("Dados nao podem ser alterado.");
                 }
             }
        }
        else
-           System.out.println("Livro não encontrado");
+           System.out.println("Artista nao encontrado");
        pausa();
        
    }
@@ -140,28 +134,28 @@ public class Livros_CRUD {
    
    public static void excluiArtista() throws Exception {
        
-       System.out.println("\nEXCLUSÃO DE ARTISTA");
+       System.out.println("\nEXCLUSAO DE ARTISTA");
 
        int id;
-       System.out.print("ID do livro: ");
+       System.out.print("ID do artista: ");
        id = Integer.valueOf(console.nextLine());
        if(id <=0) 
            return;
        
-       Livro obj;
-       if( (obj = (Livro)arqArtistas.buscar(id))!=null ) {
+       Artista obj;
+       if( (obj = (Artista)arqArtistas.buscar(id))!=null ) {
             System.out.println(obj);
             
-            System.out.print("\nConfirma exclusão? ");
+            System.out.print("\nConfirma exclusao? ");
             char confirma = console.nextLine().charAt(0);
             if(confirma=='s' || confirma=='S') {
                 if( arqArtistas.excluir(id) ) {
-                    System.out.println("Cadastro excluído.");
+                    System.out.println("Cadastro excluido.");
                 }
             }
        }
        else
-           System.out.println("Livro não encontrado");
+           System.out.println("Cadastro nao encontrado");
        pausa();
        
    }
@@ -169,19 +163,19 @@ public class Livros_CRUD {
    
    public static void buscaArtista() throws Exception {
        
-       System.out.println("\nBUSCA DE LIVRO POR CÓDIGO");
+       System.out.println("\nBUSCA DE ARTISTA POR CODIGO");
        
        int codigo;
-       System.out.print("Código: ");
+       System.out.print("Codigo: ");
        codigo = Integer.valueOf(console.nextLine());
        if(codigo <=0) 
            return; 
        
        Livro obj;
-       if( (obj = (Livro)arqArtistas.buscar(codigo))!=null )
+       if( (obj = (Artista)arqArtistas.buscar(codigo))!=null )
            System.out.println(obj);
        else
-           System.out.println("Livro não encontrado");
+           System.out.println("Cadastro nao encontrado");
        pausa();
        
    }
