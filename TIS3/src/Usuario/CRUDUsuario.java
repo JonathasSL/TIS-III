@@ -52,14 +52,26 @@ public class CRUDUsuario {
 				input.close();
 				output.close();
 				file.close();
-			}else
-				if(retrieve(user) == null) {
+				return true;
+			}else {
+				boolean notFound = true;
+				while(input.available() != 0 && notFound) {
+					StringTokenizer tkn = new StringTokenizer(input.readLine(),";");
+					String nome = tkn.nextToken();
+					tkn.nextToken();
+					notFound = !user.equals(nome);
+				}
+				if(retrieve(user) == null && notFound) {
 					output.println(user);
 					output.close();
 					file.close();
 					return true;
 				}
+			}
+				
 
+			openFile.close();
+			input.close();
 			output.close();
 			file.close();
 		} catch(FileNotFoundException e) {
@@ -79,22 +91,21 @@ public class CRUDUsuario {
 
 			String userName = null;
 			String password = null;
-			boolean notFound = true;
-			Usuario user = null;
 
-			while(input.available() != 0 && notFound) {
+			while(input.available() != 0) {
 				StringTokenizer sToken = new StringTokenizer(input.readLine(),";");
 				userName = sToken.nextToken();
 				password = sToken.nextToken();
 				Usuario temp = new Usuario(userName,password,2);
-				if(usuario.equals(temp)) {	
-					notFound = false;
-					user = temp.clone();
+				if(usuario.equals(temp)) {
+					input.close();
+					file.close();
+					return temp;
 				}
 			}
 			input.close();
 			file.close();
-			return user;
+			return null;
 		} catch(FileNotFoundException e) {
 			e.printStackTrace();
 			System.out.println("Arquivo nao existe");
@@ -105,6 +116,13 @@ public class CRUDUsuario {
 		}
 	}
 
+	public static boolean exist(Usuario usuario) {
+		if(retrieve(usuario)==null)
+			return false;
+		else
+			return true;
+	}
+	
 	public static boolean updateUserName(Usuario user, String newName) {
 		if(retrieve(user) != null) {
 			delete(user);

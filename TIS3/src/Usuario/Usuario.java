@@ -25,8 +25,8 @@ public class Usuario {
 	public boolean equals(Usuario user) {
 		return (this.userName.equals(user.getUserName()) && this.password.equals(user.getCriptoPassword()))?true:false;
 	}
-	public boolean equals(String userName,String password) {
-		return (userName == this.userName && password == this.password)?true:false;
+	public boolean equals(String userName) {
+		return userName.equalsIgnoreCase(this.userName);
 	}
 	
 	public Usuario clone() {
