@@ -23,9 +23,10 @@ public class Usuario {
 	}
 	
 	public boolean equals(Usuario user) {
-		if(user.getUserName() == this.getUserName() && user.getCriptoPassword()==this.getCriptoPassword())
-			return true;
-		return false;
+		return (this.userName.equals(user.getUserName()) && this.password.equals(user.getCriptoPassword()))?true:false;
+	}
+	public boolean equals(String userName,String password) {
+		return (userName == this.userName && password == this.password)?true:false;
 	}
 	
 	public Usuario clone() {
