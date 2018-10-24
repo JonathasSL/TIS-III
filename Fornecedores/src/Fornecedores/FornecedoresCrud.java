@@ -1,4 +1,4 @@
-package aed3;
+package Fornecedores;
 
 
 
@@ -16,10 +16,11 @@ public class FornecedoresCrud {
 
         try {
 
-            arqForn = new Arquivo<>(Fornecedores.class.getConstructor(), "fornecedores.db");
+         	arqForn = new Arquivo<>(Fornecedores.class.getConstructor(), "fornecedores.db");
 
-       	 Calculadora c = new Calculadora();
-     	c.setVisible(true);
+            
+            Menu i = new Menu();
+            i.setVisible(true);
   
             
 //            // menu
@@ -66,7 +67,7 @@ public class FornecedoresCrud {
        
    }
    
-   public static void incluirCliente(String nome,String produto,String pessoa, String telefone, String email) throws Exception  {
+   public  void incluirCliente(String nome,String produto,String pessoa, String telefone, String email) throws Exception  {
        
 //     String nome;
 //     String telefone;
@@ -91,7 +92,7 @@ public class FornecedoresCrud {
          //System.out.println("Cliente incluido com ID: "+id);
      //}
 
-    pausa();
+//    pausa();
  }
 //   }
 

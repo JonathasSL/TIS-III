@@ -6,17 +6,31 @@ public class Usuario {
 	private String userName;
 	private String password;
 	private String email;
-	
-	public Usuario(String userName, String password,String email) {
-		this.setUserName(userName);
-		this.setPassword(password);
-		this.setEmail(email);
-	}
-	public Usuario(String userName, String password) {
-		this.setUserName(userName);
-		this.setPassword(password);
-	}
 
+	public Usuario(String userName, String password,int mode) {
+		if(mode == 1) {
+			setUserName(userName);
+			setPassword(digestPassword(password));
+			//		this.setEmail(email);
+		} else {
+			if(mode == 2) {
+				setUserName(userName);
+				setPassword(password);
+			}
+		}
+	}
+	
+	public boolean equals(Usuario user) {
+		if(user.getUserName() == this.getUserName())
+			return true;
+		return false;
+	}
+	
+	public Usuario clone() {
+		Usuario user = new Usuario(this.userName,this.password,2);
+		return user;
+	}
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -24,10 +38,16 @@ public class Usuario {
 		this.userName = userName;
 	}
 
-	public String getPassword() {
+	public String getCriptoPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
+		this.password = password;
+	}
+	public void newPassword(String password) {
+		setPassword(digestPassword(password));
+	}
+	public String digestPassword(String password) {
 		try {
 			MessageDigest cript = MessageDigest.getInstance("MD5");
 			byte messageDigest[] = cript.digest(password.getBytes("UTF-8"));
@@ -36,12 +56,13 @@ public class Usuario {
 			for (byte b: messageDigest)
 				hexString.append(String.format("%02x",0xFF & b));
 
-			this.password = hexString.toString();
+			return hexString.toString();
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 
 	public String getEmail() {
@@ -53,7 +74,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "userName=" + userName + "; password=" + password;
+		return userName + ";" + password;
 	}
 
 }
