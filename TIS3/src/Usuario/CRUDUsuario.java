@@ -1,3 +1,5 @@
+package Usuario;
+
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,10 +9,10 @@ import java.io.PrintStream;
 import java.util.StringTokenizer;
 
 public class CRUDUsuario {
-	private static final String nomeArquivo = ".users"; 
+	private static final String nomeArquivo = "users"; 
 
 	@SuppressWarnings("deprecation")
-	public boolean create(String nome, String senha) {
+	public static boolean create(String nome, String senha) {
 		try {
 			FileOutputStream file = new FileOutputStream(nomeArquivo,true);
 			PrintStream output = new PrintStream(file);
@@ -35,7 +37,7 @@ public class CRUDUsuario {
 		return false;
 	}
 	
-	public boolean create(Usuario user) {
+	public static boolean create(Usuario user) {
 		try {
 			FileOutputStream file = new FileOutputStream(nomeArquivo,true);
 			PrintStream output = new PrintStream(file);
@@ -59,8 +61,7 @@ public class CRUDUsuario {
 		return false;
 	}
 
-
-	public Usuario retrieve(Usuario usuario) {
+	public static Usuario retrieve(Usuario usuario) {
 		try {
 			FileInputStream file = new FileInputStream(nomeArquivo);
 			DataInputStream input = new DataInputStream(file);
@@ -86,7 +87,7 @@ public class CRUDUsuario {
 			return user;
 		} catch(FileNotFoundException e) {
 			e.printStackTrace();
-			System.out.println("Arquivo não existe");
+			System.out.println("Arquivo nï¿½o existe");
 			return null;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -94,7 +95,7 @@ public class CRUDUsuario {
 		}
 	}
 
-	public boolean updateUserName(Usuario user, String newName) {
+	public static boolean updateUserName(Usuario user, String newName) {
 		if(retrieve(user) != null) {
 			delete(user);
 			user.setUserName(newName);
@@ -120,7 +121,7 @@ public class CRUDUsuario {
 		return false;
 	}
 
-	public boolean updatePassword(Usuario user, String newPassword){
+	public static boolean updatePassword(Usuario user, String newPassword){
 		if(retrieve(user) != null) {			
 			try {
 				FileOutputStream file = new FileOutputStream(nomeArquivo,true);
@@ -146,7 +147,7 @@ public class CRUDUsuario {
 		return false;
 	}
 
-	public boolean delete(Usuario user) {
+	public static boolean delete(Usuario user) {
 		if(retrieve(user) != null) {
 			try {
 				FileInputStream file = new FileInputStream(nomeArquivo);
