@@ -1,3 +1,5 @@
+package Usuario;
+
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -21,7 +23,7 @@ public class Usuario {
 	}
 	
 	public boolean equals(Usuario user) {
-		if(user.getUserName() == this.getUserName())
+		if(user.getUserName() == this.getUserName() && user.getCriptoPassword()==this.getCriptoPassword())
 			return true;
 		return false;
 	}
