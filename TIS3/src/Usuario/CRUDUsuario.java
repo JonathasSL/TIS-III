@@ -11,6 +11,7 @@ import java.util.StringTokenizer;
 public class CRUDUsuario {
 	private static final String NOME_ARQUIVO = "users"; 
 
+	//Escreve um usuario no arquivo apartir de uma string de nome e outra de senha
 	@SuppressWarnings("deprecation")
 	public static boolean create(String nome, String senha) {
 		try {
@@ -36,7 +37,8 @@ public class CRUDUsuario {
 		}
 		return false;
 	}
-
+	
+	//Escreve um usuario no arquivo apartir de um usuario ja instanciado
 	public static boolean create(Usuario user) {
 		try {
 			FileOutputStream file = new FileOutputStream(NOME_ARQUIVO,true);
@@ -83,7 +85,8 @@ public class CRUDUsuario {
 		}
 		return false;
 	}
-
+	
+	//retorna um usuario passado por parametro se existir ou null se não existir
 	public static Usuario retrieve(Usuario usuario) {
 		try {
 			FileInputStream file = new FileInputStream(NOME_ARQUIVO);
@@ -116,6 +119,7 @@ public class CRUDUsuario {
 		}
 	}
 
+	//Chama o retrieve e trasnforma as saidas para boolean
 	public static boolean exist(Usuario usuario) {
 		if(retrieve(usuario)==null)
 			return false;
@@ -123,6 +127,7 @@ public class CRUDUsuario {
 			return true;
 	}
 	
+	//Atualiza o nome de um usuario recebendo o usuario antigo e o nome a alterar
 	public static boolean updateUserName(Usuario user, String newName) {
 		if(retrieve(user) != null) {
 			delete(user);
@@ -149,6 +154,7 @@ public class CRUDUsuario {
 		return false;
 	}
 
+	//Atualiza a senha de um usuario recebendo o usuario antigo e a senha a alterar
 	public static boolean updatePassword(Usuario user, String newPassword){
 		if(retrieve(user) != null) {			
 			try {
@@ -175,6 +181,8 @@ public class CRUDUsuario {
 		return false;
 	}
 
+	//le o arquivo completo e escreve em um novo arquivo temporario sem o usuario a exluir
+	//depois copia o arquivo sem o usuario a excluir para o arquivo original
 	public static boolean delete(Usuario user) {
 		if(retrieve(user) != null) {
 			try {

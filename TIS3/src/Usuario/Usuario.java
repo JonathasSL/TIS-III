@@ -22,9 +22,11 @@ public class Usuario {
 		}
 	}
 	
+	//cheka se usuario e senha sao iguais
 	public boolean equals(Usuario user) {
 		return (this.userName.equals(user.getUserName()) && this.password.equals(user.getCriptoPassword()))?true:false;
 	}
+	//cheka se ja existe um usuario com aquele nome ignorando caixa alta
 	public boolean equals(String userName) {
 		return userName.equalsIgnoreCase(this.userName);
 	}
@@ -50,7 +52,7 @@ public class Usuario {
 	public void newPassword(String password) {
 		setPassword(digestPassword(password));
 	}
-	public String digestPassword(String password) {
+	private String digestPassword(String password) {
 		try {
 			MessageDigest cript = MessageDigest.getInstance("MD5");
 			byte messageDigest[] = cript.digest(password.getBytes("UTF-8"));
