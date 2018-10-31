@@ -7,6 +7,7 @@ package Artista;
 
 import ArtManager.Menu;
 import Cliente.Cliente;
+import Cliente.EditarCliente;
 import Cliente.Incluir_Cliente;
 import Login.Login;
 
@@ -99,6 +100,12 @@ public class Menu_Artista extends javax.swing.JFrame {
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
+            }
+        });
+        
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
         
@@ -320,6 +327,12 @@ public class Menu_Artista extends javax.swing.JFrame {
             dispose(); 
     }
     
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        EditarArtista m=new EditarArtista();
+       m.setVisible(true);
+            dispose(); 
+    }
 
     /**
      * @param args the command line arguments
