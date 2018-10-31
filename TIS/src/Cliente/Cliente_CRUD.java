@@ -99,56 +99,16 @@ import Artista.Artista;
 	   }
 
 	   
-	   public static void alterarCliente(Arquivo arqClientes) throws Exception {
-	       
-	       System.out.println("\nALTERA��O DE CLIENTE");
+	   public static void alterarCliente(String nome, String newNome, String telefone, String email, Arquivo arqClientes) throws Exception {
+		   Cliente obj;
+		   obj = (Cliente)arqClientes.buscar(nome);
+		   obj.nome = (newNome.length()>0 ? newNome : obj.nome);
+		   obj.telefone = (telefone.length()>0 ? telefone : obj.telefone);
+		   obj.email = (email.length()>0 ? email : obj.email);
 
-	       String nome;
-	       System.out.print("Nome do Cliente: ");
-	       nome = console.nextLine();
-	       if(nome.length() <=0) 
-	           return;
-	       
-	       Cliente obj;
-	       if( (obj = (Cliente)arqClientes.buscar(nome))!=null ) {
-	            System.out.println(obj);
-	            
-	            String newNome;
-	            String telefone;
-	            String  email;
-	            
-	            System.out.print("\nNovo nome: ");
-	            newNome = console.nextLine();
-	            System.out.print("Novo telefone: ");
-	            telefone = console.nextLine();
-	            System.out.print("Novo email: ");
-	            email = console.nextLine();
-
-	            if(newNome.length()>0 || telefone.length()>0 || email.length()>0) {
-	                System.out.println("\nConfirma altera��o? ");
-	                System.out.println("S - Sim");
-	                System.out.println("N - N�o");
-	                System.out.print("Op��o: ");
-	                char confirma = console.nextLine().charAt(0);
-	                if(confirma=='s' || confirma=='S') {
-
-	                obj.nome = (newNome.length()>0 ? newNome : obj.nome);
-	                obj.telefone = (telefone.length()>0 ? telefone : obj.telefone);
-	                obj.email = (email.length()>0 ? email : obj.email);
-
-	                if( arqClientes.alterar(obj) ) 
-	                        System.out.println("Cliente alterado.");
-	                    else
-	                        System.out.println("Cliente n�o pode ser alterado.");
-	                }
-	            }
-	       }
-	       else
-	           System.out.println("Cliente n�o encontrado");
-	       pausa();
-	       
+		   arqClientes.alterar(obj);
 	   }
-	  
+
 	   
 	   public static void excluirCliente(String nome, Arquivo arqClientes) throws Exception {
 	       

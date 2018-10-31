@@ -99,6 +99,12 @@ public class Menu_Cliente extends javax.swing.JFrame {
             }
         });
         
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -311,6 +317,13 @@ public class Menu_Cliente extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         Buscar_Cliente m=new Buscar_Cliente(dados);
+       m.setVisible(true);
+            dispose(); 
+    }
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        EditarCliente m=new EditarCliente();
        m.setVisible(true);
             dispose(); 
     }
