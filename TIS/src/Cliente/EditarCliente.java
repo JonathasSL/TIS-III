@@ -5,6 +5,8 @@
  */
 package Cliente;
 
+import javax.swing.JOptionPane;
+
 import ArtManager.Main;
 import ArtManager.Menu;
 
@@ -138,6 +140,7 @@ public class EditarCliente extends javax.swing.JFrame {
             dispose();
         } catch (Exception ex) {
         	ex.printStackTrace();
+        	JOptionPane.showMessageDialog(null, "Cliente não encontrado.");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

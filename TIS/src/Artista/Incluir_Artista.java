@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 
 import ArtManager.Main;
 import ArtManager.Menu;
+import Login.Login;
 
 /**
  *
@@ -132,8 +133,8 @@ public class Incluir_Artista extends javax.swing.JFrame {
             Artista_CRUD c = new Artista_CRUD();
             c.incluirArtista(txnome.getText(), txtelefone.getText(), txemail.getText(), Main.arqArtistas);
             dispose();
-            Incluir_Artista i = new Incluir_Artista();
-            i.setVisible(true);
+            Menu m=new Menu(Login.getNome());
+            m.setVisible(true);
             JOptionPane.showMessageDialog(null, "Artista incluido com sucesso.");
 
         } catch (Exception ex) {

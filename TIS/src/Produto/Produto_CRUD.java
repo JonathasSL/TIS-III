@@ -5,6 +5,7 @@ import java.util.Scanner;
 import ArtManager.Arquivo;
 import ArtManager.Menu;
 import Artista.Artista;
+import Cliente.Cliente;
 
 
 	public class Produto_CRUD {
@@ -99,72 +100,21 @@ import Artista.Artista;
 	   }
 
 	   
-//	   public static void alterarProduto(Arquivo arqProdutos) throws Exception {
-//	       
-//	       System.out.println("\nALTERA��O DE CLIENTE");
-//
-//	       String nome;
-//	       System.out.print("Nome do Cliente: ");
-//	       nome = console.nextLine();
-//	       if(nome.length() <=0) 
-//	           return;
-//	       
-//	       Produto obj;
-//	       if( (obj = (Produto)arqProdutos.buscar(nome))!=null ) {
-//	            System.out.println(obj);
-//	            
-//	            String newNome;
-//	            String descricao;
-//	            float  preco;
-//	            
-//	            
-//
-//	            
-//
-//	                obj.nome = (newNome.length()>0 ? newNome : obj.nome);
-//	                obj.descricao = (descricao.length()>0 ? descricao : obj.descricao);
-//	                obj.preco = (preco.length()>0 ? preco : obj.preco);
-//
-//	                if( arqProdutos.alterar(obj) ) 
-//	                        System.out.println("Cliente alterado.");
-//	                    else
-//	                        System.out.println("Cliente n�o pode ser alterado.");
-//	                }
-//	            }
-//	       }
-//	       else
-//	           System.out.println("Cliente n�o encontrado");
-//	       pausa();
-//	       
-//	   }
+	   public static void alterarProduto(String nome, String newNome, String telefone, String email, Arquivo arqProdutos) throws Exception {
+		   Produto obj;
+		   obj = (Produto)arqProdutos.buscar(nome);
+		   obj.nome = (newNome.length()>0 ? newNome : obj.nome);
+		   obj.descricao = (telefone.length()>0 ? telefone : obj.descricao);
+		   obj.preco = (email.length()>0 ? email : obj.preco);
+
+		   arqProdutos.alterar(obj);
+	   }
 	  
 	   
 	   public static void excluirProduto(String nome, Arquivo arqProdutos) throws Exception {
 	       
-	     //  System.out.println("\nEXCLUS�O DE CLIENTE");
-
-	       //String nome;
-//	       System.out.print("Nome do cliente: ");
-//	       nome = console.nextLine();
-	       //
-	       
-	 //      Cliente obj;
-//	       if( (obj = (Cliente)arqClientes.buscar(nome))!=null ) {
-//	            System.out.println(obj);
-	            
-//	            System.out.println("\nConfirma exclus�o? ");
-//	            System.out.println("S - Sim");
-//	            System.out.println("N - N�o");
-//	            char confirma = console.nextLine().charAt(0);
-//	            if(confirma=='s' || confirma=='S') {
-	                arqProdutos.excluir(nome);
-//	                    System.out.println("Cliente excluido.");
-//	                }
-	           // }
-	     //  }
-//	       else
-//	           System.out.println("Cliente n�o encontrado");
-	       //pausa();
+	    
+	                arqProdutos.excluir(nome);                    
 	       
 	   }
 	   

@@ -93,6 +93,11 @@ public class Menu extends javax.swing.JFrame {
 //        });
 
         jButton6.setText("Sair");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setText(nome);
@@ -194,6 +199,10 @@ public class Menu extends javax.swing.JFrame {
        m.setVisible(true);
             dispose(); 
         // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+    
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    	dispose(); 
     }//GEN-LAST:event_jButton4ActionPerformed
 //
 //    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

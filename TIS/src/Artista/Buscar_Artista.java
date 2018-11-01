@@ -5,6 +5,8 @@
  */
 package Artista;
 
+import javax.swing.JOptionPane;
+
 import ArtManager.Main;
 import ArtManager.Menu;
 
@@ -138,6 +140,7 @@ public class Buscar_Artista extends javax.swing.JFrame {
             dispose();
         } catch (Exception ex) {
         	ex.printStackTrace();
+        	JOptionPane.showMessageDialog(null, "Artista não encontrado.");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

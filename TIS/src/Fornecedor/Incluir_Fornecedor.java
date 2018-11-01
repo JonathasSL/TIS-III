@@ -11,6 +11,7 @@ import ArtManager.Main;
 import ArtManager.Menu;
 import Cliente.Cliente_CRUD;
 import Cliente.Incluir_Cliente;
+import Login.Login;
 
 /**
  *
@@ -156,8 +157,8 @@ public class Incluir_Fornecedor extends javax.swing.JFrame {
         Fornecedor_CRUD c = new Fornecedor_CRUD();
         c.incluirFornecedor(txnome.getText(), txtelefone.getText(), txemail.getText(), txresponsavel.getText(), txprodFornecido.getText(), Main.arqFornecedores);
         dispose();
-        Incluir_Fornecedor i = new Incluir_Fornecedor();
-        i.setVisible(true);
+        Menu m=new Menu(Login.getNome());
+        m.setVisible(true);
        JOptionPane.showMessageDialog(null, "Fornecedor incluido com sucesso.");
 
     } catch (Exception ex) {
