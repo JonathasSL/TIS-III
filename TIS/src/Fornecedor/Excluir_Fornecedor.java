@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import ArtManager.Main;
 import ArtManager.Menu;
+import Login.Login;
 
 /**
  *
@@ -108,8 +109,8 @@ public class Excluir_Fornecedor extends javax.swing.JFrame {
              
              Fornecedor_CRUD.excluirFornecedor(txnome.getText(), Main.arqFornecedores);
              dispose();
-             Excluir_Fornecedor i = new Excluir_Fornecedor();
-             i.setVisible(true);
+             Menu m=new Menu(Login.getNome());
+             m.setVisible(true);
              JOptionPane.showMessageDialog(null, "Cliente excluido.");
 
          } catch (Exception ex) {

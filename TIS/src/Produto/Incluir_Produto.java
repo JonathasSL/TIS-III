@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 
 import ArtManager.Main;
 import ArtManager.Menu;
+import Login.Login;
 
 /**
  *
@@ -133,8 +134,8 @@ public class Incluir_Produto extends javax.swing.JFrame {
            // Cliente_CRUD c = new Cliente_CRUD();
             Produto_CRUD.incluirProduto(txnome.getText(), txdescricao.getText(), txpreco.getText(), Main.arqProdutos);
             dispose();
-            Incluir_Produto i = new Incluir_Produto();
-            i.setVisible(true);
+            Menu m=new Menu(Login.getNome());
+            m.setVisible(true);
            JOptionPane.showMessageDialog(null, "Produto incluido com sucesso.");
 
         } catch (Exception ex) {

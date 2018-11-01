@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Cliente;
-
-import javax.swing.JOptionPane;
+package Produto;
 
 import ArtManager.Main;
 import ArtManager.Menu;
@@ -14,13 +12,13 @@ import ArtManager.Menu;
  *
  * @author Projetos ES
  */
-public class Buscar_Cliente extends javax.swing.JFrame {
+public class EditarProduto extends javax.swing.JFrame {
 
     /**
      * Creates new form Incluir_Fornecedores
      */
-    public Buscar_Cliente(Cliente dados) {
-        initComponents(dados);
+    public EditarProduto() {
+        initComponents();
     }
 
     /**
@@ -30,7 +28,7 @@ public class Buscar_Cliente extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents(Cliente dados) {
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -45,13 +43,13 @@ public class Buscar_Cliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel1.setText("Buscar Cliente");
+        jLabel1.setText("Editar Produto");
 
-        jLabel2.setText("Digite o Nome do Cliente que deseja buscar:");
+        jLabel2.setText("Digite o Nome do Produto que deseja Editar:");
 
-        jLabel3.setText("Telefone:");
+        jLabel3.setText("");
 
-        jLabel4.setText("Email:");
+        jLabel4.setText("");
 
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -60,9 +58,9 @@ public class Buscar_Cliente extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText(dados.getTelefone());
+        jLabel7.setText("");
 
-        jLabel8.setText(dados.getEmail());
+        jLabel8.setText("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,13 +132,12 @@ public class Buscar_Cliente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            Cliente c = Cliente_CRUD.buscarCliente(txnome.getText(), Main.arqClientes);
-            Buscar_Cliente tela = new Buscar_Cliente(c);
+            
+            EditarDados tela = new EditarDados(txnome.getText());
             tela.setVisible(true);
             dispose();
         } catch (Exception ex) {
         	ex.printStackTrace();
-        	JOptionPane.showMessageDialog(null, "Cliente não encontrado.");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -161,13 +158,13 @@ public class Buscar_Cliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Buscar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Buscar_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Buscar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Buscar_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Buscar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Buscar_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Buscar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Buscar_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -177,7 +174,7 @@ public class Buscar_Cliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Buscar_Cliente(null).setVisible(true);
+                new Buscar_Produto(null).setVisible(true);
             }
         });
     }

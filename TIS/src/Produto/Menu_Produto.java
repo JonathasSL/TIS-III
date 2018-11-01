@@ -6,6 +6,7 @@
 package Produto;
 
 import ArtManager.Menu;
+import Cliente.EditarCliente;
 import Login.Login;
 
 /**
@@ -96,6 +97,11 @@ public class Menu_Produto extends javax.swing.JFrame {
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
         
@@ -311,6 +317,13 @@ public class Menu_Produto extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         Buscar_Produto m= new Buscar_Produto(dados);
+       m.setVisible(true);
+            dispose(); 
+    }
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        EditarProduto m=new EditarProduto();
        m.setVisible(true);
             dispose(); 
     }

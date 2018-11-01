@@ -5,6 +5,8 @@
  */
 package Fornecedor;
 
+import javax.swing.JOptionPane;
+
 import ArtManager.Main;
 import ArtManager.Menu;
 import Cliente.Buscar_Cliente;
@@ -169,6 +171,7 @@ public class Buscar_Fornecedor extends javax.swing.JFrame {
         dispose();
     } catch (Exception ex) {
     	ex.printStackTrace();
+    	JOptionPane.showMessageDialog(null, "Fornecedor não encontrado.");
     }
     }//GEN-LAST:event_jButton1ActionPerformed
 

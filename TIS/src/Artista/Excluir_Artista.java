@@ -11,6 +11,7 @@ import ArtManager.Main;
 import ArtManager.Menu;
 import Cliente.Cliente_CRUD;
 import Cliente.Excluir_Cliente;
+import Login.Login;
 
 /**
  *
@@ -109,8 +110,8 @@ public class Excluir_Artista extends javax.swing.JFrame {
        Artista_CRUD c = new Artista_CRUD();
         c.excluirArtista(txnome.getText(), Main.arqArtistas);
         dispose();
-        Excluir_Artista i = new Excluir_Artista();
-        i.setVisible(true);
+        Menu m=new Menu(Login.getNome());
+        m.setVisible(true);
         JOptionPane.showMessageDialog(null, "Artista excluido.");
 
     } catch (Exception ex) {

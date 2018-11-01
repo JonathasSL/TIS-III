@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import ArtManager.Main;
 import ArtManager.Menu;
+import Login.Login;
 
 /**
  *
@@ -108,8 +109,8 @@ public class Excluir_Produto extends javax.swing.JFrame {
              Produto_CRUD c = new Produto_CRUD();
              c.excluirProduto(txnome.getText(), Main.arqProdutos);
              dispose();
-             Excluir_Produto i = new Excluir_Produto();
-             i.setVisible(true);
+             Menu m=new Menu(Login.getNome());
+             m.setVisible(true);
              JOptionPane.showMessageDialog(null, "Produto excluido.");
 
          } catch (Exception ex) {
