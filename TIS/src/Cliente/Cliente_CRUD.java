@@ -2,6 +2,9 @@ package Cliente;
 
 import java.util.Scanner;
 
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 import ArtManager.Arquivo;
 import ArtManager.Menu;
 import Artista.Artista;
@@ -56,19 +59,17 @@ import Artista.Artista;
 	    }
 	    
 
-	   public static void listarClientes(Arquivo arqClientes) throws Exception {
+	   public static Cliente[] listarClientes(Arquivo arqClientes) throws Exception {
 		   
 		   arqClientes = new Arquivo<>(Cliente.class.getConstructor(), "clientes.db");
 	       
-	       Object[] obj = arqClientes.listar();
+	       Cliente[] clientes = arqClientes.listar();
 	       
-	       System.out.println("\nLISTA DE CLIENTES");
-	       for(int i=0; i<obj.length; i++) {
-	           System.out.println((Cliente)obj[i]);
-	       }
-	       pausa();
+	       return clientes;
 	       
 	   }
+	   
+	   
 	   
 	   public static void incluirCliente(String nome, String telefone, String email, Arquivo arqClientes) throws Exception  {
 	       

@@ -5,6 +5,7 @@
  */
 package Cliente;
 
+import ArtManager.Main;
 import ArtManager.Menu;
 import Login.Login;
 
@@ -296,10 +297,21 @@ public class Menu_Cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        Menu m=new Menu(Login.getNome());
-       m.setVisible(true);
-            dispose(); 
+    	Cliente[] clientes = null;
+		try {
+			clientes = Cliente_CRUD.listarClientes(Main.arqClientes);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        Tabela tabela = new Tabela(clientes);
+        tabela.setVisible(true);
+        dispose();
+     
+    	
+//        Menu m=new Menu(Login.getNome());
+//       m.setVisible(true);
+//            dispose(); 
     }//GEN-LAST:event_jButton5ActionPerformed
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
