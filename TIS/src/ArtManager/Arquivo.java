@@ -4,6 +4,8 @@ import java.io.RandomAccessFile;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 
+import Cliente.Cliente;
+
 
 
 
@@ -37,11 +39,12 @@ public class Arquivo <T extends Entidade> {
 	        return id;
 	    }
 	    
-	    public Object[] listar() throws Exception {
+	    public Cliente[] listar() throws Exception {
 
 	        // Em um sistema real, o número de registros será muito superior ao que
 	        // um ArrayList poderia comportar em memória. Esta operação está aqui
 	        // apenas para facilitar a depuração do código
+	     
 	        ArrayList<T> lista = new ArrayList<>();
 	        arquivo.seek(4);
 	        byte lapide;
@@ -59,7 +62,7 @@ public class Arquivo <T extends Entidade> {
 	                lista.add(obj);
 	        }
 	        
-	        Object[] ls = lista.toArray();
+	        Cliente[] ls = lista.toArray(new Cliente[lista.size()]);
 	        return ls;
 	    }
 	    
