@@ -304,9 +304,9 @@ public class Menu_Cliente extends javax.swing.JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        Tabela tabela = new Tabela(clientes);
+        ListarCliente tabela = new ListarCliente(clientes);
         tabela.setVisible(true);
-        dispose();
+       
      
     	
 //        Menu m=new Menu(Login.getNome());

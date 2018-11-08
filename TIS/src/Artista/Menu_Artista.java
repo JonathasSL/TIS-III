@@ -5,10 +5,13 @@
  */
 package Artista;
 
+import ArtManager.Main;
 import ArtManager.Menu;
 import Cliente.Cliente;
+import Cliente.Cliente_CRUD;
 import Cliente.EditarCliente;
 import Cliente.Incluir_Cliente;
+import Cliente.ListarCliente;
 import Login.Login;
 
 /**
@@ -300,10 +303,20 @@ public class Menu_Artista extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        Menu m=new Menu(Login.getNome());
-       m.setVisible(true);
-            dispose(); 
+    	Artista[] artistas = null;
+		try {
+			artistas = Artista_CRUD.listarArtistas(Main.arqArtistas);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        ListarArtista tabela = new ListarArtista(artistas);
+        tabela.setVisible(true);
+        
+
+//      Menu m=new Menu(Login.getNome());
+//     m.setVisible(true);
+//          dispose(); 
     }//GEN-LAST:event_jButton5ActionPerformed
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

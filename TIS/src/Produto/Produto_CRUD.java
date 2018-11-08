@@ -57,19 +57,15 @@ import Cliente.Cliente;
 	    }
 	    
 
-	   public static void listarProdutos(Arquivo arqProdutos) throws Exception {
-		   
-		   arqProdutos = new Arquivo<>(Produto.class.getConstructor(), "produtos.db");
-	       
-	       Object[] obj = arqProdutos.listar();
-	       
-	       System.out.println("\nLISTA DE CLIENTES");
-	       for(int i=0; i<obj.length; i++) {
-	           System.out.println((Produto)obj[i]);
-	       }
-	       pausa();
-	       
-	   }
+	    public static Produto[] listarProdutos(Arquivo arqProdutos) throws Exception {
+			   
+			   arqProdutos = new Arquivo<>(Produto.class.getConstructor(), "produtos.db");
+		       
+		       Produto[] produtos = arqProdutos.listarProdutos();
+		       
+		       return produtos;
+		       
+		   }
 	   
 	   public static void incluirProduto(String nome, String descricao, String preco, Arquivo arqProdutos) throws Exception  {
 	       

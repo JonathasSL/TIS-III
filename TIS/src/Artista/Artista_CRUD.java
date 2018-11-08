@@ -55,15 +55,15 @@ public class Artista_CRUD {
 	}
 
 
-//	public static Artista[] listarClientes(Arquivo arqArtistas) throws Exception {
-//		   
-//		   arqArtistas = new Arquivo<>(Artista.class.getConstructor(), "artistas.db");
-//	       
-////	       Artista[] artistas = arqArtistas.listarArtista();
-//	       
-//	       return artistas;
-//	       
-//	   }
+	 public static Artista[] listarArtistas(Arquivo arqArtistas) throws Exception {
+	   
+	   arqArtistas = new Arquivo<>(Artista.class.getConstructor(), "artistas.db");
+    
+    Artista[] artistas = arqArtistas.listarArtistas();
+    
+    return artistas;
+    
+}
 
 	public static void incluirArtista(String nome, String telefone, String email, Arquivo arqArtistas) throws Exception  {
 

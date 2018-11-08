@@ -1,4 +1,4 @@
-package Cliente;
+package Produto;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -7,7 +7,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class Tabela extends JFrame {
+public class ListarProduto extends JFrame {
 	
     //variaveis para uso da JTable 
 	JTable table; 
@@ -17,21 +17,21 @@ public class Tabela extends JFrame {
     /*Construtor da classe ,
       antes de executar o metodo main(),
       irá construir o JFrame e a JTable*/
-public Tabela(Cliente[] clientes) {
+public ListarProduto(Produto[] produtos) {
     setLayout(new FlowLayout());//tipo de layout
     setSize(new Dimension(600, 200));//tamanho do Formulario
     setLocationRelativeTo(null);//centralizado
-    setTitle("Lista de Clientes");//titulo
+    setTitle("Lista de Produtos");//titulo
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//setando a ação padrão de fechamento do Formulário,
                                                            // neste caso  irá fechar o programa
      
             //instanciando a JTable
-    table = new JTable(new DefaultTableModel(null, new Object[]{"Nome", "Telefone", "Email"}));
+    table = new JTable(new DefaultTableModel(null, new Object[]{"Nome", "Descrição", "Preço"}));
     table.setPreferredScrollableViewportSize(new Dimension(500,100));//barra de rolagem
     table.setFillsViewportHeight(true);
     DefaultTableModel  modeloDados = (DefaultTableModel) table.getModel();
-    for(int i=0; i<clientes.length; i++) {
-        modeloDados.addRow(new Object[]{clientes[i].nome, clientes[i].telefone, clientes[i].email});
+    for(int i=0; i<produtos.length; i++) {
+        modeloDados.addRow(new Object[]{produtos[i].nome, produtos[i].descricao, produtos[i].preco});
     }
    
      
@@ -45,7 +45,7 @@ public Tabela(Cliente[] clientes) {
 
 	public static void main(String[] args) {
 		
-		  new Tabela(null).setVisible(true);
+		  new ListarProduto(null).setVisible(true);
 
 	}
 

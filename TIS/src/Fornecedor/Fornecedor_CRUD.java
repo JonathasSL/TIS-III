@@ -55,17 +55,15 @@ import Cliente.Cliente;
 	    }
 	    
 
-	   public static void listarFornecedores(Arquivo arqFornecedores) throws Exception {
-	       
-	       Object[] obj = arqFornecedores.listar();
-	       
-	       System.out.println("\nLISTA DE ");
-	       for(int i=0; i<obj.length; i++) {
-	           System.out.println((Fornecedor)obj[i]);
-	       }
-	       pausa();
-	       
-	   }
+	    public static Fornecedor[] listarFornecedores(Arquivo arqFornecedores) throws Exception {
+			   
+			   arqFornecedores = new Arquivo<>(Fornecedor.class.getConstructor(), "fornecedores.db");
+		       
+		       Fornecedor[] fornecedores = arqFornecedores.listarFornecedores();
+		       
+		       return fornecedores;
+		       
+		   }
 	   
 	   public static void incluirFornecedor(String nome, String telefone, String email, String responsavel, String prodFornecido, Arquivo arqFornecedores) throws Exception  {
 	       
