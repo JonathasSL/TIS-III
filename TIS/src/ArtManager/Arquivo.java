@@ -4,8 +4,10 @@ import java.io.RandomAccessFile;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 
+import Artista.Artista;
 import Cliente.Cliente;
-
+import Fornecedor.Fornecedor;
+import Produto.Produto;
 
 
 
@@ -39,7 +41,7 @@ public class Arquivo <T extends Entidade> {
 	        return id;
 	    }
 	    
-	    public Cliente[] listar() throws Exception {
+	    public Cliente[] listarClientes() throws Exception {
 
 	        // Em um sistema real, o número de registros será muito superior ao que
 	        // um ArrayList poderia comportar em memória. Esta operação está aqui
@@ -63,6 +65,87 @@ public class Arquivo <T extends Entidade> {
 	        }
 	        
 	        Cliente[] ls = lista.toArray(new Cliente[lista.size()]);
+	        return ls;
+	    }
+	    
+	    public Artista[] listarArtistas() throws Exception {
+
+	        // Em um sistema real, o número de registros será muito superior ao que
+	        // um ArrayList poderia comportar em memória. Esta operação está aqui
+	        // apenas para facilitar a depuração do código
+	     
+	        ArrayList<T> lista = new ArrayList<>();
+	        arquivo.seek(4);
+	        byte lapide;
+	        byte[] b;
+	        int s;
+	        T obj;
+	        while(arquivo.getFilePointer()<arquivo.length()) {
+	            obj = construtor.newInstance();
+	            lapide = arquivo.readByte();
+	            s = arquivo.readInt();
+	            b = new byte[s];
+	            arquivo.read(b);
+	            obj.setByteArray(b);
+	            if(lapide==' ')
+	                lista.add(obj);
+	        }
+	        
+	        Artista[] ls = lista.toArray(new Artista[lista.size()]);
+	        return ls;
+	    }
+	    
+	    public Fornecedor[] listarFornecedores() throws Exception {
+
+	        // Em um sistema real, o número de registros será muito superior ao que
+	        // um ArrayList poderia comportar em memória. Esta operação está aqui
+	        // apenas para facilitar a depuração do código
+	     
+	        ArrayList<T> lista = new ArrayList<>();
+	        arquivo.seek(4);
+	        byte lapide;
+	        byte[] b;
+	        int s;
+	        T obj;
+	        while(arquivo.getFilePointer()<arquivo.length()) {
+	            obj = construtor.newInstance();
+	            lapide = arquivo.readByte();
+	            s = arquivo.readInt();
+	            b = new byte[s];
+	            arquivo.read(b);
+	            obj.setByteArray(b);
+	            if(lapide==' ')
+	                lista.add(obj);
+	        }
+	        
+	        Fornecedor[] ls = lista.toArray(new Fornecedor[lista.size()]);
+	        return ls;
+	    }
+	    
+	    public Produto[] listarProdutos() throws Exception {
+
+	        // Em um sistema real, o número de registros será muito superior ao que
+	        // um ArrayList poderia comportar em memória. Esta operação está aqui
+	        // apenas para facilitar a depuração do código
+	     
+	        ArrayList<T> lista = new ArrayList<>();
+	        arquivo.seek(4);
+	        byte lapide;
+	        byte[] b;
+	        int s;
+	        T obj;
+	        while(arquivo.getFilePointer()<arquivo.length()) {
+	            obj = construtor.newInstance();
+	            lapide = arquivo.readByte();
+	            s = arquivo.readInt();
+	            b = new byte[s];
+	            arquivo.read(b);
+	            obj.setByteArray(b);
+	            if(lapide==' ')
+	                lista.add(obj);
+	        }
+	        
+	        Produto[] ls = lista.toArray(new Produto[lista.size()]);
 	        return ls;
 	    }
 	    
@@ -144,7 +227,8 @@ public class Arquivo <T extends Entidade> {
 	        }
 	        return false;
 
-	    }    
+	    }
+
 
 
 }

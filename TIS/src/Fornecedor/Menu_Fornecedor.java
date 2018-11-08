@@ -5,9 +5,12 @@
  */
 package Fornecedor;
 
+import ArtManager.Main;
 import ArtManager.Menu;
 import Cliente.Cliente;
+import Cliente.Cliente_CRUD;
 import Cliente.EditarCliente;
+import Cliente.ListarCliente;
 import Login.Login;
 
 /**
@@ -298,10 +301,20 @@ public class Menu_Fornecedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        Menu m=new Menu(Login.getNome());
-       m.setVisible(true);
-            dispose(); 
+    	Fornecedor[] fornecedores = null;
+		try {
+			fornecedores = Fornecedor_CRUD.listarFornecedores(Main.arqClientes);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        ListarFornecedor tabela = new ListarFornecedor(fornecedores);
+        tabela.setVisible(true);
+        
+    	
+//        Menu m=new Menu(Login.getNome());
+//       m.setVisible(true);
+//            dispose(); 
     }//GEN-LAST:event_jButton5ActionPerformed
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

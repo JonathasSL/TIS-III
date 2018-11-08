@@ -63,7 +63,7 @@ import Artista.Artista;
 		   
 		   arqClientes = new Arquivo<>(Cliente.class.getConstructor(), "clientes.db");
 	       
-	       Cliente[] clientes = arqClientes.listar();
+	       Cliente[] clientes = arqClientes.listarClientes();
 	       
 	       return clientes;
 	       

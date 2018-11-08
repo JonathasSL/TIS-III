@@ -5,8 +5,12 @@
  */
 package Produto;
 
+import ArtManager.Main;
 import ArtManager.Menu;
+import Cliente.Cliente;
+import Cliente.Cliente_CRUD;
 import Cliente.EditarCliente;
+import Cliente.ListarCliente;
 import Login.Login;
 
 /**
@@ -296,10 +300,20 @@ public class Menu_Produto extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        Menu m=new Menu(Login.getNome());
-       m.setVisible(true);
-            dispose(); 
+    	Produto[] produtos = null;
+		try {
+			produtos = Produto_CRUD.listarProdutos(Main.arqProdutos);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        ListarProduto tabela = new ListarProduto(produtos);
+        tabela.setVisible(true);
+
+    	
+//        Menu m=new Menu(Login.getNome());
+//       m.setVisible(true);
+//            dispose(); 
     }//GEN-LAST:event_jButton5ActionPerformed
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
