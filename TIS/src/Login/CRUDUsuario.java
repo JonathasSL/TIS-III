@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.StringTokenizer;
 
+import editais.Publicador;
+
 public class CRUDUsuario {
 	private static final String NOME_ARQUIVO = "users"; 
 
@@ -17,7 +19,7 @@ public class CRUDUsuario {
 			FileOutputStream file = new FileOutputStream(NOME_ARQUIVO,true);
 			PrintStream output = new PrintStream(file);
 
-			Usuario user = new Usuario(nome,senha,1);
+			Usuario user = new Usuario(nome,senha,UserCreation.CREATE);
 			if(retrieve(user) == null) {
 				output.println(user);
 				output.close();
@@ -34,7 +36,6 @@ public class CRUDUsuario {
 		}
 		return false;
 	}
-
 	public static boolean create(Usuario user) {
 		try {
 			FileOutputStream file = new FileOutputStream(NOME_ARQUIVO,true);
@@ -94,7 +95,7 @@ public class CRUDUsuario {
 				StringTokenizer sToken = new StringTokenizer(input.readLine(),";");
 				userName = sToken.nextToken();
 				password = sToken.nextToken();
-				Usuario temp = new Usuario(userName,password,2);
+				Usuario temp = new Usuario(userName,password,UserCreation.ALOCATE);
 				if(usuario.equals(temp)) {
 					input.close();
 					file.close();
@@ -115,10 +116,30 @@ public class CRUDUsuario {
 	}
 
 	public static boolean exist(Usuario usuario) {
-		if(retrieve(usuario)==null)
-			return false;
-		else
-			return true;
+		try {
+			FileInputStream file = new FileInputStream(NOME_ARQUIVO);
+			DataInputStream input = new DataInputStream(file);
+
+			String nome;
+			String senha;
+
+			while(input.available() !=0) {
+				StringTokenizer sToken = new StringTokenizer(input.readLine(),";");
+				nome = sToken.nextToken();
+				senha = sToken.nextToken();
+				Usuario temp = new Usuario(nome,senha,UserCreation.ALOCATE);
+				if(usuario.equals(temp)) {
+					input.close();
+					file.close();
+					return true;
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	public static boolean updateUserName(Usuario user, String newName) {
@@ -188,7 +209,7 @@ public class CRUDUsuario {
 					StringTokenizer sToken = new StringTokenizer(input.readLine(),";");
 					userName = sToken.nextToken();
 					password = sToken.nextToken();
-					Usuario temp = new Usuario(userName,password,2);
+					Usuario temp = new Usuario(userName,password,UserCreation.ALOCATE);
 					if(!temp.equals(user))
 						output.println(input.readLine());
 				}
