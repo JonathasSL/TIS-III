@@ -130,8 +130,8 @@ public class Cadastrar extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
            // Cliente_CRUD c = new Cliente_CRUD();
-        	Usuario user = new Usuario(txnomecad.getText(),txsenha.getText(),1);
-        	CRUDUsuario.create(user);
+//        	Usuario user = new Usuario(txnomecad.getText(),txsenha.getText(),UserCreation.CREATE);
+        	CRUDUsuario.create(txnomecad.getText(),txsenha.getText());
             dispose();
             Login l = new Login();
             l.setVisible(true);

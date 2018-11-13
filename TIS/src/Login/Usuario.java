@@ -9,13 +9,13 @@ public class Usuario {
 	private String password;
 	private String email;
 
-	public Usuario(String userName, String password,int mode) {
-		if(mode == 1) {
+	public Usuario(String userName, String password,UserCreation mode) {
+		if(mode == UserCreation.CREATE) {
 			setUserName(userName);
 			setPassword(digestPassword(password));
 			//		this.setEmail(email);
 		} else {
-			if(mode == 2) {
+			if(mode == UserCreation.ALOCATE) {
 				setUserName(userName);
 				setPassword(password);
 			}
@@ -30,7 +30,7 @@ public class Usuario {
 	}
 	
 	public Usuario clone() {
-		Usuario user = new Usuario(this.userName,this.password,2);
+		Usuario user = new Usuario(this.userName,this.password,UserCreation.ALOCATE);
 		return user;
 	}
 	

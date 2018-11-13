@@ -150,7 +150,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txloginActionPerformed
 
     private void BentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BentrarActionPerformed
-    	Usuario user = new Usuario(txlogin.getText(),jPasswordField1.getText(),1);
+    	Usuario user = new Usuario(txlogin.getText(),jPasswordField1.getText(),UserCreation.CREATE);
     	nome = txlogin.getText();
     	if(CRUDUsuario.exist(user)) {
 			if(user.equals(CRUDUsuario.retrieve(user))) {
