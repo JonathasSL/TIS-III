@@ -318,7 +318,7 @@ public class Menu_Produto extends javax.swing.JFrame {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        Incluir_Produto m=new Incluir_Produto();
+        Incluir_Produto m = new Incluir_Produto();
        m.setVisible(true);
             dispose(); 
     }

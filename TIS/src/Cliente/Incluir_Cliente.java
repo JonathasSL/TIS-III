@@ -1,19 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Cliente;
+
+
+
 
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 import ArtManager.Main;
 import ArtManager.Menu;
+import Cliente.Cliente_CRUD;
 import Login.Login;
 
 /**
@@ -21,7 +19,6 @@ import Login.Login;
  * @author Projetos ES
  */
 public class Incluir_Cliente extends javax.swing.JFrame {
-	
 
     /**
      * Creates new form Incluir_Cliente
@@ -37,17 +34,18 @@ public class Incluir_Cliente extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    public void initComponents() {
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txnome = new JTextField("");
+        txnome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtelefone = new JTextField("");
+        txtelefone = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txemail = new JTextField("");
+        txemail = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +65,13 @@ public class Incluir_Cliente extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -81,21 +86,26 @@ public class Incluir_Cliente extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txnome)
                                 .addComponent(txtelefone)
-                                .addComponent(txemail, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))))
+                                .addComponent(txemail, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                                .addComponent(jButton2))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(255, 255, 255)
                         .addComponent(jButton1)))
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addGap(64, 64, 64))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton2))
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -130,25 +140,29 @@ public class Incluir_Cliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-           // Cliente_CRUD c = new Cliente_CRUD();
-            Cliente_CRUD.incluirCliente(txnome.getText(), txtelefone.getText(), txemail.getText(), Main.arqClientes);
-            dispose();
-            Menu m=new Menu(Login.getNome());
-            m.setVisible(true);
-           JOptionPane.showMessageDialog(null, "Cliente incluido com sucesso.");
+        	try {
+                // Cliente_CRUD c = new Cliente_CRUD();
+                 Cliente_CRUD.incluirCliente(txnome.getText(), txtelefone.getText(), txemail.getText(), Main.arqClientes);
+                 dispose();
+                 Menu m=new Menu(Login.getNome());
+                 m.setVisible(true);
+                JOptionPane.showMessageDialog(null, "Cliente incluido com sucesso.");
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+             } catch (Exception ex) {
+                 ex.printStackTrace();
+             }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Menu m = new Menu(Login.getNome());
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
     public static void main(String args[]) {
-    	
         /* Set the Nimbus look and feel */
 
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -156,8 +170,6 @@ public class Incluir_Cliente extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-        	
-        	
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -186,6 +198,7 @@ public class Incluir_Cliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
