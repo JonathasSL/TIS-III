@@ -38,6 +38,7 @@ public class Excluir_Produto extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txnome = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +51,13 @@ public class Excluir_Produto extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -66,17 +74,22 @@ public class Excluir_Produto extends javax.swing.JFrame {
                         .addGap(188, 188, 188)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel1)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                                .addComponent(jButton2))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(264, 264, 264)
                         .addComponent(jButton1)))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addGap(114, 114, 114))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton2))
                 .addGap(24, 24, 24)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -117,6 +130,12 @@ public class Excluir_Produto extends javax.swing.JFrame {
              ex.printStackTrace();
          }
     }//GEN-LAST:event_jButton1ActionPerformed
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    	 Menu m = new Menu(Login.getNome());
+         m.setVisible(true);
+         dispose();
+   }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,6 +189,7 @@ public class Excluir_Produto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

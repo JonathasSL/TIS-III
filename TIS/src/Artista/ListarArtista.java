@@ -22,7 +22,7 @@ public ListarArtista(Artista[] artistas) {
     setSize(new Dimension(600, 200));//tamanho do Formulario
     setLocationRelativeTo(null);//centralizado
     setTitle("Lista de Artistas");//titulo
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//setando a ação padrão de fechamento do Formulário,
+    setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//setando a ação padrão de fechamento do Formulário,
                                                            // neste caso  irá fechar o programa
      
             //instanciando a JTable
