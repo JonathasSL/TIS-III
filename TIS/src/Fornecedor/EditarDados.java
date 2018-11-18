@@ -24,8 +24,8 @@ public class EditarDados extends javax.swing.JFrame {
     /**
      * Creates new form Cadastrar
      */
-    public EditarDados(String name) {
-    	this.name = name;
+    public EditarDados(Fornecedor dados) {
+    	this.dados = dados;
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -112,14 +112,19 @@ public class EditarDados extends javax.swing.JFrame {
 //        });
         getContentPane().add(campo_nome);
         campo_nome.setBounds(260, 130, 250, 30);
+        campo_nome.setText(dados.getNome());
         getContentPane().add(campo_email);
         campo_email.setBounds(260, 190, 250, 30);
+        campo_email.setText(dados.getProdFornecido());
         getContentPane().add(campo_senha);
         campo_senha.setBounds(260, 240, 250, 30);
+        campo_senha.setText(dados.getTelefone());
         getContentPane().add(campo_responsavel);
         campo_responsavel.setBounds(260, 300, 250, 30);
+        campo_responsavel.setText(dados.getEmail());
         getContentPane().add(campo_prodFornecido);
         campo_prodFornecido.setBounds(260, 350, 250, 30);
+        campo_prodFornecido.setText(dados.getResponsavel());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setText("Digite os novos dados:");
@@ -177,7 +182,7 @@ public class EditarDados extends javax.swing.JFrame {
     
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-           Fornecedor_CRUD.alterarFornecedor(name, campo_nome.getText(), campo_prodFornecido.getText(), campo_senha.getText(), campo_email.getText(), campo_responsavel.getText(),  Main.arqFornecedores);
+           Fornecedor_CRUD.alterarFornecedor(dados.getNome(), campo_nome.getText(), campo_prodFornecido.getText(), campo_senha.getText(), campo_email.getText(), campo_responsavel.getText(),  Main.arqFornecedores);
             dispose();
             Menu m=new Menu(Login.getNome());
             m.setVisible(true);
@@ -227,7 +232,7 @@ public class EditarDados extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditarDados(name).setVisible(true);
+                new EditarDados(dados).setVisible(true);
             }
         });
     }
@@ -246,6 +251,6 @@ public class EditarDados extends javax.swing.JFrame {
     private javax.swing.JLabel senha;
     private javax.swing.JLabel responsavel;
     private javax.swing.JLabel prodFornecido;
-    private static String name;
+    private static Fornecedor dados;
     // End of variables declaration//GEN-END:variables
 }

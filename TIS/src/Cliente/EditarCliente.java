@@ -134,8 +134,8 @@ public class EditarCliente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            
-            EditarDados tela = new EditarDados(txnome.getText());
+            Cliente dados = Cliente_CRUD.buscarCliente(txnome.getText(), Main.arqClientes);
+            EditarDados tela = new EditarDados(dados);
             tela.setVisible(true);
             dispose();
         } catch (Exception ex) {
