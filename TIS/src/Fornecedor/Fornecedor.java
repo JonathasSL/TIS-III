@@ -84,6 +84,18 @@ public class Fornecedor implements Entidade{
 	public String getNome() {
 		return this.nome;
 	}
+	public String getTelefone() {
+		return telefone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public String getResponsavel() {
+		return responsavel;
+	}
+	public String getProdFornecido() {
+		return prodFornecido;
+	}
 
 
 

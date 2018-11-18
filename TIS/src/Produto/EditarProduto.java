@@ -7,6 +7,8 @@ package Produto;
 
 import ArtManager.Main;
 import ArtManager.Menu;
+import Cliente.Cliente;
+import Cliente.Cliente_CRUD;
 
 /**
  *
@@ -132,8 +134,8 @@ public class EditarProduto extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            
-            EditarDados tela = new EditarDados(txnome.getText());
+        	Produto dados = Produto_CRUD.buscarProduto(txnome.getText(), Main.arqProdutos);
+            EditarDados tela = new EditarDados(dados);
             tela.setVisible(true);
             dispose();
         } catch (Exception ex) {

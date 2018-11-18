@@ -24,8 +24,8 @@ public class EditarDados extends javax.swing.JFrame {
     /**
      * Creates new form Cadastrar
      */
-    public EditarDados(String name) {
-    	this.name = name;
+    public EditarDados(Cliente dados) {
+    	this.dados = dados;
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -98,10 +98,13 @@ public class EditarDados extends javax.swing.JFrame {
 //        });
         getContentPane().add(campo_nome);
         campo_nome.setBounds(260, 130, 250, 30);
+        campo_nome.setText(dados.getNome());
         getContentPane().add(campo_email);
         campo_email.setBounds(260, 190, 250, 30);
+        campo_email.setText(dados.getTelefone());
         getContentPane().add(campo_senha);
         campo_senha.setBounds(260, 240, 250, 30);
+        campo_senha.setText(dados.getEmail());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setText("Digite os novos dados:");
@@ -160,7 +163,7 @@ public class EditarDados extends javax.swing.JFrame {
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
            // Cliente_CRUD c = new Cliente_CRUD();
-            Cliente_CRUD.alterarCliente(name, campo_nome.getText(), campo_email.getText(), campo_senha.getText(), Main.arqClientes);
+            Cliente_CRUD.alterarCliente(dados.getNome(), campo_nome.getText(), campo_email.getText(), campo_senha.getText(), Main.arqClientes);
             dispose();
             Menu m=new Menu(Login.getNome());
             m.setVisible(true);
@@ -210,7 +213,7 @@ public class EditarDados extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditarDados(name).setVisible(true);
+                new EditarDados(dados).setVisible(true);
             }
         });
     }
@@ -225,6 +228,6 @@ public class EditarDados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel nome;
     private javax.swing.JLabel senha;
-    private static String name;
+    private static Cliente dados;
     // End of variables declaration//GEN-END:variables
 }
