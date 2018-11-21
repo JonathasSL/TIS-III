@@ -85,4 +85,18 @@ public class Projeto {
 	protected void setStatus(Status status) {
 		this.status = status;
 	} 
+	
+	public boolean equals(Projeto projeto) {
+		if(projeto.getNome().equalsIgnoreCase(this.nome))
+			if(projeto.getLocal().equalsIgnoreCase(this.local))
+				if(projeto.getDescricao().equalsIgnoreCase(this.descricao))
+					return true;
+		return false;
+	}
+	
+	@Override
+	public String toString() {
+		return nome + ";" + local + ";" + descricao + ";" + objetivo + ";" + resumo + ";" + justificativa + ";" + democratizacao
+				+ ";" + acessibilidade + ";" + publicoEstimado + ";" + orcamento + ";" + status;
+	}
 }

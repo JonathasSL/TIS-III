@@ -74,10 +74,8 @@ public class CRUDUsuario {
 			output.close();
 			file.close();
 		} catch(FileNotFoundException e) {
-			e.printStackTrace();
 			return false;
 		} catch (IOException e) {
-			e.printStackTrace();
 			return false;
 		}
 		return false;
@@ -106,11 +104,8 @@ public class CRUDUsuario {
 			file.close();
 			return null;
 		} catch(FileNotFoundException e) {
-			e.printStackTrace();
-			System.out.println("Arquivo nao existe");
 			return null;
 		} catch (IOException e) {
-			e.printStackTrace();
 			return null;
 		}
 	}
@@ -135,67 +130,40 @@ public class CRUDUsuario {
 				}
 			}
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			
 		} catch (IOException e) {
-			e.printStackTrace();
+			
 		}
 		return false;
 	}
 	
-	public static boolean updateUserName(Usuario user, String newName) {
-		if(retrieve(user) != null) {
+	public static boolean update(Usuario user, String nome, String senha) {
+		if(exist(user)) {
 			delete(user);
-			user.setUserName(newName);
+			Usuario newUser = new Usuario(nome,senha,UserCreation.CREATE);
 
 			try {
 				FileOutputStream file = new FileOutputStream(NOME_ARQUIVO,true);
 				PrintStream output = new PrintStream(file);
 
-				output.println(user);
+				output.println(newUser);
 				output.close();
 				file.close();
 
 				return true;
 			} catch (FileNotFoundException e) {
-				e.printStackTrace();
+				
 				return false;
 			} catch (IOException e) {
-				e.printStackTrace();
+				
 				return false;
 			}
 		}
-
 		return false;
 	}
-
-	public static boolean updatePassword(Usuario user, String newPassword){
-		if(retrieve(user) != null) {			
-			try {
-				FileOutputStream file = new FileOutputStream(NOME_ARQUIVO,true);
-				PrintStream output = new PrintStream(file);
-
-				delete(user);
-				user.newPassword(newPassword);
-
-				output.println(user);
-				output.close();
-				file.close();
-
-				return true;
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-				return false;
-			} catch (IOException e) {
-				e.printStackTrace();
-				return false;
-			}
-		}
-
-		return false;
-	}
-
+	
 	public static boolean delete(Usuario user) {
-		if(retrieve(user) != null) {
+		if(exist(user)) {
 			try {
 				FileInputStream file = new FileInputStream(NOME_ARQUIVO);
 				DataInputStream input = new DataInputStream(file);
@@ -248,4 +216,55 @@ public class CRUDUsuario {
 		return false;
 	}
 
+	
+//	public static boolean updateUserName(Usuario user, String newName) {
+//		if(exist(user)) {
+//			delete(user);
+//			user.setUserName(newName);
+//
+//			try {
+//				FileOutputStream file = new FileOutputStream(NOME_ARQUIVO,true);
+//				PrintStream output = new PrintStream(file);
+//
+//				output.println(user);
+//				output.close();
+//				file.close();
+//
+//				return true;
+//			} catch (FileNotFoundException e) {
+//				
+//				return false;
+//			} catch (IOException e) {
+//				
+//				return false;
+//			}
+//		}
+//		return false;
+//	}
+//
+//	public static boolean updatePassword(Usuario user, String newPassword){
+//		if(retrieve(user) != null) {			
+//			try {
+//				FileOutputStream file = new FileOutputStream(NOME_ARQUIVO,true);
+//				PrintStream output = new PrintStream(file);
+//
+//				delete(user);
+//				user.newPassword(newPassword);
+//
+//				output.println(user);
+//				output.close();
+//				file.close();
+//
+//				return true;
+//			} catch (FileNotFoundException e) {
+//				
+//				return false;
+//			} catch (IOException e) {
+//				
+//				return false;
+//			}
+//		}
+//
+//		return false;
+//	}
 }
