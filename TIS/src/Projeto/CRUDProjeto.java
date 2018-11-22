@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
 
 
@@ -32,7 +34,6 @@ public abstract class CRUDProjeto {
 			projeto.setJustificativa(justificativa);
 			projeto.setDemocratizacao(democratizacao);
 			projeto.setAcessibilidade(acessibilidade);
-			projeto.setAcessibilidade(acessibilidade);
 			projeto.setPublicoEstimado(publicoEstimado);
 			projeto.setOrcamento(orcamento);
 
@@ -54,6 +55,41 @@ public abstract class CRUDProjeto {
 		return false;
 	}
 
+	public static boolean create(String nome, String local, String descricao, String objetivo,
+			String resumo, String justificativa, String democratizacao, String acessibilidade, String publicoEstimado, String orcamento) {
+		try {
+			FileOutputStream file = new FileOutputStream(NOME_ARQUIVO,true);
+			PrintStream output = new PrintStream(file);
+
+			Projeto projeto = new Projeto(nome);
+			projeto.setLocal(local);
+			projeto.setDescricao(descricao);
+			projeto.setObjetivo(objetivo);
+			projeto.setResumo(resumo);
+			projeto.setJustificativa(justificativa);
+			projeto.setDemocratizacao(democratizacao);
+			projeto.setAcessibilidade(acessibilidade);
+			projeto.setPublicoEstimado(Integer.parseInt(publicoEstimado));
+			projeto.setOrcamento(Float.parseFloat(orcamento));
+
+
+			if(!exist(projeto)) {
+				output.println(projeto);
+				output.close();
+				file.close();
+				return true;
+			}
+
+			output.close();
+			file.close();
+		} catch(FileNotFoundException e) {
+			return false;
+		} catch (IOException e) {
+			return false;
+		}
+		return false;
+	}
+	
 	//checa se um projeto existe no arquivo
 	public static boolean exist(Projeto project) {
 		try {
@@ -82,6 +118,8 @@ public abstract class CRUDProjeto {
 					return true;
 				}
 			}
+		} catch (NoSuchElementException e) {
+			return false;
 		} catch (FileNotFoundException e) {
 			return false;
 		} catch (IOException e) {
@@ -94,21 +132,21 @@ public abstract class CRUDProjeto {
 		try {
 			FileInputStream file = new FileInputStream(NOME_ARQUIVO);
 			DataInputStream input = new DataInputStream(file);
-			
+
 			while(input.available() !=0) {
 				StringTokenizer sToken = new StringTokenizer(input.readLine(),";");
 
 				Projeto temp = new Projeto(sToken.nextToken());
-//				temp.setLocal(sToken.nextToken());
-//				temp.setDescricao(sToken.nextToken());
-//				temp.setObjetivo(sToken.nextToken());
-//				temp.setResumo(sToken.nextToken());
-//				temp.setJustificativa(sToken.nextToken());
-//				temp.setDemocratizacao(sToken.nextToken());
-//				temp.setAcessibilidade(sToken.nextToken());
-//				temp.setAcessibilidade(sToken.nextToken());
-//				temp.setPublicoEstimado(Integer.parseInt(sToken.nextToken()));
-//				temp.setOrcamento(Float.parseFloat(sToken.nextToken()));
+				//				temp.setLocal(sToken.nextToken());
+				//				temp.setDescricao(sToken.nextToken());
+				//				temp.setObjetivo(sToken.nextToken());
+				//				temp.setResumo(sToken.nextToken());
+				//				temp.setJustificativa(sToken.nextToken());
+				//				temp.setDemocratizacao(sToken.nextToken());
+				//				temp.setAcessibilidade(sToken.nextToken());
+				//				temp.setAcessibilidade(sToken.nextToken());
+				//				temp.setPublicoEstimado(Integer.parseInt(sToken.nextToken()));
+				//				temp.setOrcamento(Float.parseFloat(sToken.nextToken()));
 
 				if(nome.equalsIgnoreCase(temp.getNome())) {
 					input.close();
@@ -133,11 +171,11 @@ public abstract class CRUDProjeto {
 
 				while(input.available() != 0) {
 					StringTokenizer sToken = new StringTokenizer(input.readLine(),";");
-					
+
 					Projeto temp = new Projeto(sToken.nextToken());
 
 					if(nome.equalsIgnoreCase(temp.getNome())) {
-						
+
 						temp.setLocal(sToken.nextToken());
 						temp.setDescricao(sToken.nextToken());
 						temp.setObjetivo(sToken.nextToken());
@@ -145,16 +183,15 @@ public abstract class CRUDProjeto {
 						temp.setJustificativa(sToken.nextToken());
 						temp.setDemocratizacao(sToken.nextToken());
 						temp.setAcessibilidade(sToken.nextToken());
-						temp.setAcessibilidade(sToken.nextToken());
 						temp.setPublicoEstimado(Integer.parseInt(sToken.nextToken()));
 						temp.setOrcamento(Float.parseFloat(sToken.nextToken()));
-						
+
 						input.close();
 						file.close();
 						return temp;
 					}
 				}
-				
+
 				input.close();
 				file.close();
 				return null;
@@ -166,6 +203,43 @@ public abstract class CRUDProjeto {
 		return null;
 	}
 
+	//retorna um vetor de projetos
+	public static Projeto[] retrieveAll() {
+		try {
+			FileInputStream file = new FileInputStream(NOME_ARQUIVO);
+			DataInputStream input = new DataInputStream(file);
+
+			ArrayList<Projeto> list = new ArrayList<>();
+
+			while(input.available() != 0) {
+				StringTokenizer sToken = new StringTokenizer(input.readLine(),";");
+
+				Projeto temp = new Projeto(sToken.nextToken());
+				temp.setLocal(sToken.nextToken());
+				temp.setDescricao(sToken.nextToken());
+				temp.setObjetivo(sToken.nextToken());
+				temp.setResumo(sToken.nextToken());
+				temp.setJustificativa(sToken.nextToken());
+				temp.setDemocratizacao(sToken.nextToken());
+				temp.setAcessibilidade(sToken.nextToken());
+				temp.setAcessibilidade(sToken.nextToken());
+				temp.setPublicoEstimado(Integer.parseInt(sToken.nextToken()));
+				temp.setOrcamento(Float.parseFloat(sToken.nextToken()));
+
+				list.add(temp);
+			}
+
+			input.close();
+			file.close();
+			return (Projeto[]) list.toArray();
+
+		} catch(FileNotFoundException e) {
+			return null;
+		} catch (IOException e) {
+			return null;
+		}
+	}
+
 	public static boolean update(Projeto projeto,String nome, String local, String descricao, String objetivo,
 			String resumo, String justificativa, String democratizacao, String acessibilidade, int publicoEstimado, float orcamento) {
 		if(exist(projeto)) {
@@ -174,7 +248,7 @@ public abstract class CRUDProjeto {
 		}
 		return false;
 	}
-	
+
 	public static boolean delete(Projeto projeto) {
 		if(exist(projeto)) {
 			try {
@@ -183,23 +257,23 @@ public abstract class CRUDProjeto {
 
 				FileOutputStream tempFile = new FileOutputStream("temp_"+NOME_ARQUIVO,false);
 				PrintStream output = new PrintStream(tempFile);
-				
-				
+
+
 				while(input.available() != 0) {
 					StringTokenizer sToken = new StringTokenizer(input.readLine(),";");
 
 					Projeto temp = new Projeto(sToken.nextToken());
 					temp.setLocal(sToken.nextToken());
 					temp.setDescricao(sToken.nextToken());
-//					temp.setObjetivo(sToken.nextToken());
-//					temp.setResumo(sToken.nextToken());
-//					temp.setJustificativa(sToken.nextToken());
-//					temp.setDemocratizacao(sToken.nextToken());
-//					temp.setAcessibilidade(sToken.nextToken());
-//					temp.setAcessibilidade(sToken.nextToken());
-//					temp.setPublicoEstimado(Integer.parseInt(sToken.nextToken()));
-//					temp.setOrcamento(Float.parseFloat(sToken.nextToken()));
-					
+					//					temp.setObjetivo(sToken.nextToken());
+					//					temp.setResumo(sToken.nextToken());
+					//					temp.setJustificativa(sToken.nextToken());
+					//					temp.setDemocratizacao(sToken.nextToken());
+					//					temp.setAcessibilidade(sToken.nextToken());
+					//					temp.setAcessibilidade(sToken.nextToken());
+					//					temp.setPublicoEstimado(Integer.parseInt(sToken.nextToken()));
+					//					temp.setOrcamento(Float.parseFloat(sToken.nextToken()));
+
 					if(!temp.equals(projeto))
 						output.println(input.readLine());
 				}
@@ -235,5 +309,5 @@ public abstract class CRUDProjeto {
 		}
 		return false;
 	}
-	
+
 }

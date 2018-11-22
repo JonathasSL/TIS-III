@@ -52,8 +52,6 @@ public class Menu extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,20 +91,6 @@ public class Menu extends javax.swing.JFrame {
 //                jButton5ActionPerformed(evt);
 //            }
 //        });
-        
-        jButton7.setText("Projeto");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        
-        jButton8.setText("Relatório");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
 
         jButton6.setText("Sair");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -125,38 +109,31 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton6))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(105, 105, 105)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jButton1)
-                                        .addGap(40, 40, 40)
-                                        .addComponent(jButton2)
-                                        .addGap(45, 45, 45)
-                                        .addComponent(jButton3))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(20, 20, 20)
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel1))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(jButton4)
-                                .addGap(41, 41, 41)
-                                .addComponent(jButton5)
-                                .addGap(68, 68, 68)
-                                .addComponent(jButton7)
-                                .addGap(44, 44, 44)
-                                .addComponent(jButton8)))
-                        .addGap(0, 103, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(81, 81, 81)
+                .addComponent(jButton5)
+                .addGap(224, 224, 224))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton6)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(40, 40, 40)
+                        .addComponent(jButton2)
+                        .addGap(45, 45, 45)
+                        .addComponent(jButton3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1)))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,9 +152,7 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
-                    .addComponent(jButton4)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
+                    .addComponent(jButton4))
                 .addContainerGap(203, Short.MAX_VALUE))
         );
 
@@ -224,15 +199,6 @@ public class Menu extends javax.swing.JFrame {
        m.setVisible(true);
             dispose(); 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-    
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-
-    	
-    }//GEN-LAST:event_jButton4ActionPerformed
-    
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
-
     }//GEN-LAST:event_jButton4ActionPerformed
     
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -338,8 +304,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
