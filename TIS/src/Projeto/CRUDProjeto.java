@@ -108,7 +108,6 @@ public abstract class CRUDProjeto {
 				temp.setJustificativa(sToken.nextToken());
 				temp.setDemocratizacao(sToken.nextToken());
 				temp.setAcessibilidade(sToken.nextToken());
-				temp.setAcessibilidade(sToken.nextToken());
 				temp.setPublicoEstimado(Integer.parseInt(sToken.nextToken()));
 				temp.setOrcamento(Float.parseFloat(sToken.nextToken()));
 
@@ -218,7 +217,7 @@ public abstract class CRUDProjeto {
 				temp.setLocal(sToken.nextToken());
 				temp.setDescricao(sToken.nextToken());
 				temp.setObjetivo(sToken.nextToken());
-				temp.setResumo(sToken.nextToken());
+//				temp.setResumo(sToken.nextToken());
 				temp.setJustificativa(sToken.nextToken());
 				temp.setDemocratizacao(sToken.nextToken());
 				temp.setAcessibilidade(sToken.nextToken());

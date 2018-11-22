@@ -12,6 +12,7 @@ public class Projeto {
 	private int publicoEstimado;
 	private float orcamento;
 	private Status status;
+	private String stats;
 	
 	public Projeto(String nome){
 		setNome(nome);
@@ -85,7 +86,14 @@ public class Projeto {
 	protected void setStatus(Status status) {
 		this.status = status;
 	} 
-	
+	public String getStats() {
+		return stats;
+	}
+	public void setStats(String stats) {
+		this.stats = stats;
+	}
+
+
 	public boolean equals(Projeto projeto) {
 		if(projeto.getNome().equalsIgnoreCase(this.nome))
 			if(projeto.getLocal().equalsIgnoreCase(this.local))
