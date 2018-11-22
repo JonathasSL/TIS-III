@@ -1,8 +1,11 @@
 package Relatorio;
 
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import Projeto.Projeto;
-import Projeto.Status;
-
+import Projeto.CRUDProjeto;
+import Relatorio.RelatorioUI;
 
 public class Relatorio_Final {
 
@@ -22,6 +25,23 @@ public class Relatorio_Final {
 		setNome(nome);
 	}
 
+	
+	public byte[] getByteArray() throws IOException {
+        ByteArrayOutputStream dados = new ByteArrayOutputStream();
+        DataOutputStream saida = new DataOutputStream( dados );
+        saida.writeUTF(this.nome);
+        saida.writeUTF(this.local);
+        saida.writeUTF(this.descricao);
+        saida.writeFloat(this.tempoGasto);
+        saida.writeUTF(this.artistasEnvolvidos);
+        saida.writeUTF(this.democratizacao);
+        saida.writeUTF(this.acessibilidade);
+        saida.writeBoolean(this.prazo);
+        saida.writeFloat(this.orcamento);
+        saida.writeFloat(this.lucro);
+        return dados.toByteArray();        
+    }
+	
 	protected String getNome() {
 		return nome;
 	}
@@ -81,6 +101,14 @@ public class Relatorio_Final {
 	}
 	protected void setLucro(float lucro) {
 		this.lucro = lucro;
+	
+	}
+
+	public void buscaDados(String nome) {
+		Projeto p = CRUDProjeto.retrieve(nome);
+		
+
+		new RelatorioUI(p);
 	}
 
 
@@ -88,17 +116,8 @@ public class Relatorio_Final {
 
 
 
-/*
-chama a tela
-chama o metodo q busca em projeto as info (nome, local, descrição)
- prazo eh true se status = status.finalizado , se prazo = true imprime msg sucesso
- lucro = ganho - orçamento
- artistas = busca no projeto
- tempo gasto = tempo fim- tempo ini
- democratizacao = se democratizacao string is not initial = true
- acessibilidade = se acessibilidade string is not initial = true
-
-
- */
-	
 }
+
+
+	
+
