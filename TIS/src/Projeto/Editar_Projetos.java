@@ -15,7 +15,8 @@ public class Editar_Projetos extends javax.swing.JFrame {
      * Creates new form Incluir_Fornecedores
      */
     public Editar_Projetos(Projeto pro) {
-    	pro=CRUDProjeto.retrieve("Nome");
+    	if(pro==null)
+    		pro=CRUDProjeto.retrieve("Nome");
         initComponents(pro);
     }
 

@@ -34,11 +34,11 @@ public class Incluir_Projetos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel("Nome:");
         txnome = new javax.swing.JTextField("Nome");
         jLabel3 = new javax.swing.JLabel("Descricao:");
-        txLocal = new javax.swing.JTextField("Local");
+        txDesc = new javax.swing.JTextField("Descricao");
         jLabel4 = new javax.swing.JLabel("Objetivo:");
-        txDescricao = new javax.swing.JTextField("Descricao");
+        txObj = new javax.swing.JTextField("Objetivo");
         jButton1 = new javax.swing.JButton("Incluir ");
-        txObjetivo = new javax.swing.JTextField("Objetivo");
+        txLocal = new javax.swing.JTextField("local");
         jLabel5 = new javax.swing.JLabel("Local:");
         jLabel6 = new javax.swing.JLabel("Justificativa:");
         txJustificativa = new javax.swing.JTextField("Justificativa");
@@ -59,13 +59,6 @@ public class Incluir_Projetos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-//        jLabel1.setText("Incluir Projetos");
-
-//        jLabel2.setText("Nome:");
-
-//        jLabel3.setText("Descrição:");
-
-//        jLabel4.setText("Objetivo:");
 
 //        jButton1.setText("Incluir ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -73,20 +66,6 @@ public class Incluir_Projetos extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-//        jLabel5.setText("Local:");
-
-//        jLabel6.setText("Justificativa:");
-
-//        jLabel7.setText("Democratização:");
-
-//        jLabel8.setText("Acessibilidade:");
-
-//        jLabel9.setText("Publico Estimado:");
-
-//        jLabel10.setText("Orçamento:");
-
-//        jLabel11.setText("Status:");
 
 //        jButton2.setText("Voltar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -120,9 +99,9 @@ public class Incluir_Projetos extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
                     .addComponent(txnome)
+                    .addComponent(txDesc)
+                    .addComponent(txObj, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                     .addComponent(txLocal)
-                    .addComponent(txDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                    .addComponent(txObjetivo)
                     .addComponent(txJustificativa)
                     .addComponent(txDemocratizacao)
                     .addComponent(txAcessibilidade)
@@ -147,15 +126,15 @@ public class Incluir_Projetos extends javax.swing.JFrame {
                     .addComponent(txnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txObj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,9 +189,9 @@ public class Incluir_Projetos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     	if(CRUDProjeto.create(txnome.getText(), 
-    			txLocal.getText(), 
-    			txDescricao.getText(), 
-    			txObjetivo.getText(), 
+    			txLocal.getText(),
+    			txDesc.getText(),
+    			txObj.getText(), 
     			txResumo.getText(), 
     			txJustificativa.getText(), 
     			txDemocratizacao.getText(), 
@@ -287,10 +266,10 @@ public class Incluir_Projetos extends javax.swing.JFrame {
     private javax.swing.JTextField txPublicoEstimado;
     private javax.swing.JTextField txOrcamento;
     private javax.swing.JTextField Status;
-    private javax.swing.JTextField txDescricao;
+    private javax.swing.JTextField txObj;
     private javax.swing.JTextField txnome;
-    private javax.swing.JTextField txObjetivo;
     private javax.swing.JTextField txLocal;
+    private javax.swing.JTextField txDesc;
     private javax.swing.JTextArea txResumo;
     private javax.swing.JLabel lResumo;
     // End of variables declaration//GEN-END:variables

@@ -67,7 +67,7 @@ public class Buscar_Projetos extends javax.swing.JFrame {
         
         buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                jButtonVoltarActionPerformed(evt);
+                jButtonVoltarActionPerformed(evt);
             }
         });
 
@@ -210,6 +210,12 @@ public class Buscar_Projetos extends javax.swing.JFrame {
 	    	JOptionPane.showMessageDialog(null, "Projeto nao encontrado");
     	}
     }//GEN-LAST:event_jButton1ActionPerformed
+    
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {
+    	Menu_Projetos p = new Menu_Projetos();
+    	p.setVisible(true);
+    	dispose();
+    }
 
     /**
      * @param args the command line arguments
