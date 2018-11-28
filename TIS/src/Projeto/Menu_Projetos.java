@@ -27,9 +27,13 @@ public class Menu_Projetos extends javax.swing.JFrame {
      * Creates new form Menu_Projetos
      */
     public Menu_Projetos() {
-//    	this.user=user;
         initComponents();
     }
+    
+//    public Menu_Projetos(Usuario user) {
+//    	this.user=user;
+//        initComponents(user);
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,8 +46,8 @@ public class Menu_Projetos extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton("Cadastrar");
-        jButton2 = new javax.swing.JButton("Editar");
-        jButton3 = new javax.swing.JButton("Excluir");
+//        jButton2 = new javax.swing.JButton("Editar");
+//        jButton3 = new javax.swing.JButton("Excluir");
         jLabel1 = new javax.swing.JLabel("Projetos");
         jButton6 = new javax.swing.JButton("Menu");
         jButton7 = new javax.swing.JButton("Listar");
@@ -93,11 +97,11 @@ public class Menu_Projetos extends javax.swing.JFrame {
 //        });
 
 //        jButton3.setText("Excluir");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+//        jButton3.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                jButton3ActionPerformed(evt);
+//            }
+//        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
 //        jLabel1.setText("Projetos");
@@ -133,9 +137,9 @@ public class Menu_Projetos extends javax.swing.JFrame {
                         .addGap(118, 118, 118)
                         .addComponent(jButton1)
                         .addGap(72, 72, 72)
-                        .addComponent(jButton2)
+                        .addComponent(jButton7)
                         .addGap(69, 69, 69)
-                        .addComponent(jButton3))
+                        .addComponent(jButton8))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(218, 218, 218)
                         .addComponent(jLabel1)
@@ -144,7 +148,7 @@ public class Menu_Projetos extends javax.swing.JFrame {
                 .addGap(50, 50, 50))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(178, 178, 178)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -159,8 +163,8 @@ public class Menu_Projetos extends javax.swing.JFrame {
                 .addGap(112, 112, 112)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jButton7)
+                    .addComponent(jButton8))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton8)
@@ -343,11 +347,8 @@ public class Menu_Projetos extends javax.swing.JFrame {
     
     //botao listar
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-    	
-    	
-//    	ListarProjetos p = new ListarProjetos(CRUDProjeto.retrieveAll());
-//    	p.setVisible(true);
-//    	dispose();
+    	ListarProjetos p = new ListarProjetos(CRUDProjeto.retrieveAll());
+    	p.setVisible(true);
     }
     
     //botao buscar
