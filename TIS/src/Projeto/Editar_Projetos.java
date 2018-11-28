@@ -16,7 +16,7 @@ public class Editar_Projetos extends javax.swing.JFrame {
      */
     public Editar_Projetos(Projeto pro) {
     	if(pro==null)
-    		pro=CRUDProjeto.retrieve("Nome");
+    		pro=CRUDProjeto.retrieve("teste");
         initComponents(pro);
     }
 
@@ -49,7 +49,7 @@ public class Editar_Projetos extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel("Status:");
         txDemocratizacao = new javax.swing.JTextField(p.getDemocratizacao());
         txAcessibilidade = new javax.swing.JTextField(p.getAcessibilidade());
-        txPublicoEstimado = new javax.swing.JTextField(p.getPublicoEstimado());
+        txPublicoEstimado = new javax.swing.JTextField(p.getPublicoEstimado()+"");
         txOrcamento = new javax.swing.JTextField(p.getOrcamento()+"");
         txStatus = new javax.swing.JTextField(p.getStatus()+"");
         jButton2 = new javax.swing.JButton("Voltar");

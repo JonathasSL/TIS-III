@@ -228,9 +228,14 @@ public abstract class CRUDProjeto {
 				list.add(temp);
 			}
 
+			Projeto[] p = new Projeto[list.size()];
+			
+			for(int i=0 ; i<p.length ; i++)
+				p[i] = list.get(i);
+			
 			input.close();
 			file.close();
-			return (Projeto[]) list.toArray();
+			return p;
 
 		} catch(FileNotFoundException e) {
 			return null;
