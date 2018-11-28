@@ -40,6 +40,7 @@ public class Menu_Produto extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -78,11 +79,13 @@ public class Menu_Produto extends javax.swing.JFrame {
         jButton3.setText("Excluir");
 
         jButton4.setText("Buscar");
+        
+        jButton6.setText("Menu");
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setText("Produtos");
 
-        jButton5.setText("Menu");
+        jButton5.setText("Listar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -106,6 +109,12 @@ public class Menu_Produto extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+        
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
             }
         });
         
@@ -261,6 +270,163 @@ public class Menu_Produto extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
+        javax.swing.GroupLayout teste = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(teste);
+        teste.setHorizontalGroup(
+            teste.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, teste.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton6)
+                .addGap(43, 43, 43))
+            .addGroup(teste.createSequentialGroup()
+                .addGroup(teste.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(teste.createSequentialGroup()
+                        .addGap(218, 218, 218)
+                        .addComponent(jLabel1))
+                    .addGroup(teste.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(jButton1)
+                        .addGap(72, 72, 72)
+                        .addComponent(jButton2)
+                        .addGap(69, 69, 69)
+                        .addComponent(jButton3))
+                    .addGroup(teste.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(182, Short.MAX_VALUE))
+        );
+        teste.setVerticalGroup(
+            teste.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(teste.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jButton6)
+                .addGroup(teste.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(teste.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addGap(112, 112, 112)
+                        .addGroup(teste.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2)
+                            .addComponent(jButton3))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, teste.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 229, Short.MAX_VALUE)
+                        .addGroup(teste.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton4)
+                            .addComponent(jButton5))
+                        .addGap(177, 177, 177))))
+        );
+
+        jMenu3.setText("Clientes");
+
+        jMenuItem5.setText("Cadastrar");
+        jMenu3.add(jMenuItem5);
+
+        jMenuItem6.setText("Editar");
+        jMenu3.add(jMenuItem6);
+
+        jMenuItem7.setText("Excluir");
+        jMenu3.add(jMenuItem7);
+
+        jMenuItem8.setText("Listar");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem8);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu5.setText("Fornecedores");
+
+        jMenuItem13.setText("Cadastrar");
+        jMenu5.add(jMenuItem13);
+
+        jMenuItem14.setText("Editar");
+        jMenu5.add(jMenuItem14);
+
+        jMenuItem15.setText("Excluir");
+        jMenu5.add(jMenuItem15);
+
+        jMenuItem16.setText("Listar");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem16ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem16);
+
+        jMenuBar1.add(jMenu5);
+
+        jMenu2.setText("Produtos");
+
+        jMenuItem17.setText("Cadastrar");
+        jMenu2.add(jMenuItem17);
+
+        jMenuItem18.setText("Editar");
+        jMenu2.add(jMenuItem18);
+
+        jMenuItem19.setText("Excluir");
+        jMenu2.add(jMenuItem19);
+
+        jMenuItem20.setText("Listar");
+        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem20ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem20);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu4.setText("Estoque");
+
+        jMenuItem9.setText("Cadastrar");
+        jMenu4.add(jMenuItem9);
+
+        jMenuItem10.setText("Editar");
+        jMenu4.add(jMenuItem10);
+
+        jMenuItem11.setText("Excluir");
+        jMenu4.add(jMenuItem11);
+
+        jMenuItem12.setText("Listar");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem12);
+
+        jMenuBar1.add(jMenu4);
+
+        jMenu1.setText("Projetos");
+
+        jMenuItem1.setText("Cadastrar");
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Editar");
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Excluir");
+        jMenu1.add(jMenuItem3);
+
+        jMenuItem4.setText("Listar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -309,11 +475,13 @@ public class Menu_Produto extends javax.swing.JFrame {
 		}
         ListarProduto tabela = new ListarProduto(produtos);
         tabela.setVisible(true);
-
+    }//GEN-LAST:event_jButton5ActionPerformed
+    
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
     	
-//        Menu m=new Menu(Login.getNome());
-//       m.setVisible(true);
-//            dispose(); 
+        Menu m=new Menu(Login.getNome());
+       m.setVisible(true);
+            dispose(); 
     }//GEN-LAST:event_jButton5ActionPerformed
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -383,6 +551,7 @@ public class Menu_Produto extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

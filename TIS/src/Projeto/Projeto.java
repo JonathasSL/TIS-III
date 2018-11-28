@@ -20,7 +20,7 @@ public class Projeto {
 	}
 	
 	
-	protected String getNome() {
+	public String getNome() {
 		return nome;
 	}
 	protected void setNome(String nome) {
@@ -74,7 +74,7 @@ public class Projeto {
 	protected void setPublicoEstimado(int publicoEstimado) {
 		this.publicoEstimado = publicoEstimado;
 	}
-	protected float getOrcamento() {
+	public float getOrcamento() {
 		return orcamento;
 	}
 	protected void setOrcamento(float orcamento) {

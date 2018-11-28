@@ -9,23 +9,23 @@ import javax.swing.JOptionPane;
 import ArtManager.Main;
 import ArtManager.Menu;
 import Login.Login;
-import Projeto.Projeto;
 import Projeto.Buscar_Projetos;
 import Projeto.CRUDProjeto;
+import Projeto.Projeto;
+
 
 public class RelatorioUI extends javax.swing.JFrame {
 
-	private Projeto p;
 
-	public RelatorioUI(Projeto p) {
-		p = CRUDProjeto.retrieve("teste");
-		initComponents(p);
+	public RelatorioUI(Projeto dados) {
+		dados = CRUDProjeto.retrieve("Teste");
+		initComponents(dados);
 	}
 
 
 	@SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents(Projeto p) {
+    private void initComponents(Projeto dados) {
 
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -48,16 +48,9 @@ public class RelatorioUI extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-            	{"NOME:", ""},
-                {"LOCAL:", ""},
-                {"DESCRICAO:", ""},
-              //  {"TEMPO GASTO:", null},
-               // {"ARTISTAS:",null},
-                {"DEMOCRATIZACAO:", ""},
-                {"ACESSIBILIDADE:", ""},
-              //  {"PRAZO:", null},
-                {"ORCAMENTO:", ""},
-             //   {"LUCRO:", null}
+            	{"NOME:", dados.getNome()},
+                {"ORCAMENTO:", dados.getOrcamento()},
+                {"DESPESA:", ""}
             },
             new String [] {
                 " ", " "
