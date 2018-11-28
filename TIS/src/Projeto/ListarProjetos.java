@@ -26,12 +26,12 @@ public ListarProjetos(Projeto[] p) {
                                                            // neste caso  irá fechar o programa
      
             //instanciando a JTable
-    table = new JTable(new DefaultTableModel(null, new Object[]{"Nome", "Local", "Editar"}));
+    table = new JTable(new DefaultTableModel(null, new Object[]{"Nome", "Local"/*, "Editar"*/}));
     table.setPreferredScrollableViewportSize(new Dimension(500,100));//barra de rolagem
     table.setFillsViewportHeight(true);
     DefaultTableModel  modeloDados = (DefaultTableModel) table.getModel();
     for(int i=0; i<p.length; i++) {
-        modeloDados.addRow(new Object[]{p[i].getNome(), p[i].getLocal(),null});
+        modeloDados.addRow(new Object[]{p[i].getNome(), p[i].getLocal()/*,null*/});
     }
    
      

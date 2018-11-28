@@ -6,4 +6,9 @@ public enum Status {
 	PENDENTE,
 	EM_ANDAMENTO,
 	EM_ATRASO;
+	
+	public String toString() {
+		return this.name();
+	}
+	
 }
