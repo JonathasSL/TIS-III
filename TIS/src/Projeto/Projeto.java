@@ -1,7 +1,12 @@
 package Projeto;
 
+import java.util.ArrayList;
+
+import Produto.Produto;
+
 public class Projeto {
 	private String nome;
+	private String cliente;
 	private String local;
 	private String descricao;
 	private String objetivo;
@@ -13,6 +18,8 @@ public class Projeto {
 	private float orcamento;
 	private Status status;
 	private String stats;
+	private ArrayList<String> produtos;
+	private ArrayList<String> artistas;
 	
 	public Projeto(String nome){
 		setNome(nome);
@@ -105,6 +112,41 @@ public class Projeto {
 	@Override
 	public String toString() {
 		return nome + ";" + local + ";" + descricao + ";" + objetivo + ";" + resumo + ";" + justificativa + ";" + democratizacao
-				+ ";" + acessibilidade + ";" + publicoEstimado + ";" + orcamento + ";" + status;
+				+ ";" + acessibilidade + ";" + publicoEstimado + ";" + orcamento + ";" + status + ";" + cliente + ";" + getProdutosString();
+	}
+
+
+	public String getCliente() {
+		return cliente;
+	}
+	public void setCliente(String cliente) {
+		this.cliente = cliente;
+	}
+
+	public String getProdutosString() {
+		StringBuilder sb = new StringBuilder();
+		for(String p : produtos)
+			sb.append(p+"|");
+		return sb.toString();
+	}
+	public ArrayList<String> getProdutos() {
+		return produtos;
+	}
+	public void setProdutos(ArrayList<String> produtos) {
+		this.produtos = produtos;
+	}
+
+	public boolean addProduto(String produto) {
+		return produtos.add(produto);
+	}
+	public boolean deleteProduto(String produto) {
+		return produtos.remove(produto);
+	}
+
+	public ArrayList<String> getArtistas() {
+		return artistas;
+	}
+	public void setArtistas(ArrayList<String> artistas) {
+		this.artistas = artistas;
 	}
 }

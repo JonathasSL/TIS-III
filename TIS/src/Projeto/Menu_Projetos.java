@@ -22,7 +22,6 @@ import Login.Usuario;
  */
 public class Menu_Projetos extends javax.swing.JFrame {
 
-	private static Usuario user;
     /**
      * Creates new form Menu_Projetos
      */

@@ -10,14 +10,12 @@ package Projeto;
  * @author Projetos ES
  */
 public class Editar_Projetos extends javax.swing.JFrame {
-
+    Projeto projeto;
     /**
      * Creates new form Incluir_Fornecedores
      */
-    public Editar_Projetos(Projeto pro) {
-    	if(pro==null)
-    		pro=CRUDProjeto.retrieve("teste");
-        initComponents(pro);
+    public Editar_Projetos() {
+        initComponents();
     }
 
     /**
@@ -27,162 +25,272 @@ public class Editar_Projetos extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents(Projeto p) {
+    private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel("Editar Projeto");
-        jLabel2 = new javax.swing.JLabel("Nome:");
-        txnome = new javax.swing.JTextField(p.getNome());
-        jLabel3 = new javax.swing.JLabel("Descricao:");
-        txDesc = new javax.swing.JTextField("telefone");
-        jLabel4 = new javax.swing.JLabel("Objetivo:");
-        txObj = new javax.swing.JTextField(p.getObjetivo());
-        jButton1 = new javax.swing.JButton("Buscar");
-        txLocal = new javax.swing.JTextField(p.getLocal());
-        jLabel5 = new javax.swing.JLabel("Local:");
-        jLabel6 = new javax.swing.JLabel("Justificativa:");
-        txJustficativa = new javax.swing.JTextField(p.getJustificativa());
-        jLabel7 = new javax.swing.JLabel("Democratizacao:");
-        jLabel8 = new javax.swing.JLabel("Acessibilidade:");
-        jLabel9 = new javax.swing.JLabel("Publico Estimado:");
-        jLabel10 = new javax.swing.JLabel("Orcamento:");
-        jLabel11 = new javax.swing.JLabel("Status:");
-        txDemocratizacao = new javax.swing.JTextField(p.getDemocratizacao());
-        txAcessibilidade = new javax.swing.JTextField(p.getAcessibilidade());
-        txPublicoEstimado = new javax.swing.JTextField(p.getPublicoEstimado()+"");
-        txOrcamento = new javax.swing.JTextField(p.getOrcamento()+"");
-        txStatus = new javax.swing.JTextField(p.getStatus()+"");
-        jButton2 = new javax.swing.JButton("Voltar");
+        jLabelJustificativa = new javax.swing.JLabel();
+        jTextFieldJustificativa = new javax.swing.JTextField();
+        jLabelDemocratizacao = new javax.swing.JLabel();
+        jLabelAcessibilidade = new javax.swing.JLabel();
+        jLabelPublicoEstimado = new javax.swing.JLabel();
+        jLabelOrcamento = new javax.swing.JLabel();
+        jLabelStatus = new javax.swing.JLabel();
+        jTextFieldDemocratizacao = new javax.swing.JTextField();
+        jTextFieldAcessibilidade = new javax.swing.JTextField();
+        jTextFieldPublicoEstimado = new javax.swing.JTextField();
+        jTextFieldOrcamento = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabelNome = new javax.swing.JLabel();
+        jLabelCliente = new javax.swing.JLabel();
+        jTextFieldNome = new javax.swing.JTextField();
+        jLabelDescricao = new javax.swing.JLabel();
+        jLabelArtista = new javax.swing.JLabel();
+        jTextFieldDescricao = new javax.swing.JTextField();
+        jButtonCadastrarArtistas = new javax.swing.JButton();
+        jLabelObjetivo = new javax.swing.JLabel();
+        jLabelProdutos = new javax.swing.JLabel();
+        jTextFieldObjetivo = new javax.swing.JTextField();
+        jButtonCadastrarProdutos = new javax.swing.JButton();
+        jButtonSalvar = new javax.swing.JButton();
+        jTextFieldLocal = new javax.swing.JTextField();
+        jLabelLocal = new javax.swing.JLabel();
+        jButtonCadastrarCliente = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLabelJustificativa.setText("Justificativa:");
+
+        jTextFieldJustificativa.setText(projeto.getJustificativa());
+
+        jLabelDemocratizacao.setText("Democratizacao:");
+
+        jLabelAcessibilidade.setText("Acessibilidade:");
+
+        jLabelPublicoEstimado.setText("Publico Estimado:");
+
+        jLabelOrcamento.setText("Orcamento:");
+
+        jLabelStatus.setText("Status:");
+
+        jTextFieldDemocratizacao.setText(projeto.getDemocratizacao());
+
+        jTextFieldAcessibilidade.setText(projeto.getAcessibilidade());
+
+        jTextFieldPublicoEstimado.setText(projeto.getPublicoEstimado());
+
+        jTextFieldOrcamento.setText(projeto.getOrcamento());
+        jTextFieldOrcamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jTextFieldOrcamentoActionPerformed(evt);
             }
         });
-        
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(152, 152, 152)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1)
-                    .addComponent(txnome)
-                    .addComponent(txDesc)
-                    .addComponent(txObj, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                    .addComponent(txLocal)
-                    .addComponent(txJustficativa)
-                    .addComponent(txDemocratizacao)
-                    .addComponent(txAcessibilidade)
-                    .addComponent(txPublicoEstimado)
-                    .addComponent(txOrcamento)
-                    .addComponent(txStatus))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(85, 85, 85))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jButton1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton2))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txObj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(txJustficativa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txDemocratizacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txAcessibilidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txPublicoEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(63, Short.MAX_VALUE))
-        );
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel1.setText("Editar Projeto");
+
+        jButton2.setText("Voltar");
+
+        jLabelNome.setText("Nome:");
+
+        jLabelCliente.setText("Cliente:");
+
+        jTextFieldNome.setText(projeto.getNome());
+
+        jLabelDescricao.setText("Descricao:");
+
+        jLabelArtista.setText("Artista:");
+
+        jTextFieldDescricao.setText(projeto.getDescricao());
+        jTextFieldDescricao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDescricaoActionPerformed(evt);
+            }
+        });
+
+        jButtonCadastrarArtistas.setText("Cadastrar");
+        jButtonCadastrarArtistas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarArtistasActionPerformed(evt);
+            }
+        });
+
+        jLabelObjetivo.setText("Objetivo:");
+
+        jLabelProdutos.setText("Produtos:");
+
+        jTextFieldObjetivo.setText(projeto.getObjetivo());
+
+        jButtonCadastrarProdutos.setText("Cadastrar");
+
+        jButtonSalvar.setText("Atualizar");
+        jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalvarActionPerformed(evt);
+            }
+        });
+
+        jTextFieldLocal.setText(projeto.getLocal());
+
+        jLabelLocal.setText("Local:");
+
+        jButtonCadastrarCliente.setText("Cadastrar");
+        jButtonCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarClienteActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(Status.values());
+        jComboBox1.setSelectedItem(status.name());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(253, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(130, 130, 130)
+                .addComponent(jButton2)
+                .addGap(85, 85, 85))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(274, 274, 274)
+                        .addComponent(jButtonSalvar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelNome, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelLocal, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelDescricao, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelObjetivo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelJustificativa, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelDemocratizacao, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelAcessibilidade, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelPublicoEstimado, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelOrcamento, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelStatus, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelArtista, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelProdutos, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldNome, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                            .addComponent(jTextFieldDescricao)
+                            .addComponent(jTextFieldObjetivo)
+                            .addComponent(jTextFieldLocal)
+                            .addComponent(jTextFieldJustificativa)
+                            .addComponent(jTextFieldDemocratizacao)
+                            .addComponent(jTextFieldAcessibilidade)
+                            .addComponent(jTextFieldPublicoEstimado)
+                            .addComponent(jTextFieldOrcamento)
+                            .addComponent(jButtonCadastrarArtistas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonCadastrarProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonCadastrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 246, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNome))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCliente)
+                    .addComponent(jButtonCadastrarCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelLocal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelDescricao))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelObjetivo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldJustificativa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelJustificativa))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldDemocratizacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelDemocratizacao))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldAcessibilidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelAcessibilidade))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldPublicoEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPublicoEstimado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelOrcamento))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelStatus)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelArtista)
+                    .addComponent(jButtonCadastrarArtistas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelProdutos)
+                    .addComponent(jButtonCadastrarProdutos))
+                .addGap(34, 34, 34)
+                .addComponent(jButtonSalvar)
+                .addGap(14, 14, 14))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        try {
-//            Cliente_CRUD.incluirCliente(this.txnome.getText(),this.txtelefone.getText(),this.txemail.getText());
-//            Login login = new Login();
-//            login.setVisible(true);
-//            dispose();
-//        } catch (Exception ex) {
-//            Logger.getLogger(Incluir_Cliente.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jTextFieldOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOrcamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldOrcamentoActionPerformed
+
+    private void jTextFieldDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDescricaoActionPerformed
+
+    private void jButtonCadastrarArtistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarArtistasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCadastrarArtistasActionPerformed
+
+    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+        //        try {
+            //            Cliente_CRUD.incluirCliente(this.txnome.getText(),this.txtelefone.getText(),this.txemail.getText());
+            //            Login login = new Login();
+            //            login.setVisible(true);
+            //            dispose();
+            //        } catch (Exception ex) {
+            //            Logger.getLogger(Incluir_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            //        }
+    }//GEN-LAST:event_jButtonSalvarActionPerformed
+
+    private void jButtonCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarClienteActionPerformed
+        Cliente[] clientes = Cliente_CRUD.listarClientes(Main.arqClientes);
+        if(clientes!=null){
+            ListarClientes lc = new ListarClientes(clientes);
+            lc.setVisible(true);
+        }else{
+            JOptionPane.showConfirmDialog(null, "Nao existem clientes cadastrados");
+        }
+    }//GEN-LAST:event_jButtonCadastrarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,36 +325,40 @@ public class Editar_Projetos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-            	Projeto p=null;
-                new Editar_Projetos(p).setVisible(true);
+                new Editar_Projetos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonCadastrarArtistas;
+    private javax.swing.JButton jButtonCadastrarCliente;
+    private javax.swing.JButton jButtonCadastrarProdutos;
+    private javax.swing.JButton jButtonSalvar;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txJustficativa;
-    private javax.swing.JTextField txDemocratizacao;
-    private javax.swing.JTextField txAcessibilidade;
-    private javax.swing.JTextField txPublicoEstimado;
-    private javax.swing.JTextField txOrcamento;
-    private javax.swing.JTextField txStatus;
-    private javax.swing.JTextField txObj;
-    private javax.swing.JTextField txnome;
-    private javax.swing.JTextField txLocal;
-    private javax.swing.JTextField txDesc;
+    private javax.swing.JLabel jLabelAcessibilidade;
+    private javax.swing.JLabel jLabelArtista;
+    private javax.swing.JLabel jLabelCliente;
+    private javax.swing.JLabel jLabelDemocratizacao;
+    private javax.swing.JLabel jLabelDescricao;
+    private javax.swing.JLabel jLabelJustificativa;
+    private javax.swing.JLabel jLabelLocal;
+    private javax.swing.JLabel jLabelNome;
+    private javax.swing.JLabel jLabelObjetivo;
+    private javax.swing.JLabel jLabelOrcamento;
+    private javax.swing.JLabel jLabelProdutos;
+    private javax.swing.JLabel jLabelPublicoEstimado;
+    private javax.swing.JLabel jLabelStatus;
+    private javax.swing.JTextField jTextFieldAcessibilidade;
+    private javax.swing.JTextField jTextFieldDemocratizacao;
+    private javax.swing.JTextField jTextFieldDescricao;
+    private javax.swing.JTextField jTextFieldJustificativa;
+    private javax.swing.JTextField jTextFieldLocal;
+    private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JTextField jTextFieldObjetivo;
+    private javax.swing.JTextField jTextFieldOrcamento;
+    private javax.swing.JTextField jTextFieldPublicoEstimado;
     // End of variables declaration//GEN-END:variables
 }

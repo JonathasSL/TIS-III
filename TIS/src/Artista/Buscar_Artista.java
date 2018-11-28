@@ -16,12 +16,15 @@ import Login.Login;
  * @author Projetos ES
  */
 public class Buscar_Artista extends javax.swing.JFrame {
-
+	Artista artista;
     /**
      * Creates new form Incluir_Fornecedores
      */
     public Buscar_Artista(Artista dados) {
+    	artista = dados;
         initComponents(dados);
+    	if(dados==null)
+    		JOptionPane.showConfirmDialog(null, "Artista nao encontrado");
     }
 
     /**
