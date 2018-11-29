@@ -5,6 +5,9 @@
  */
 package Projeto;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Projetos ES
@@ -135,7 +138,11 @@ public class Buscar_Projetos extends javax.swing.JFrame {
 
         jLabelProdutos.setText("Produtos:");
 
-		jListProdutos.setModel(projeto.getProdutos());
+        DefaultListModel dlm = new DefaultListModel();
+//        for(String s : projeto.getProdutos())
+//        	dlm.addElement(s);
+        
+		jListProdutos.setModel(dlm);
         jScrollPane2.setViewportView(jListProdutos);
 
         jLabelCliente.setText("Cliente:");
@@ -315,14 +322,29 @@ public class Buscar_Projetos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        //        try {
-            //            Cliente_CRUD.incluirCliente(this.txnome.getText(),this.txtelefone.getText(),this.txemail.getText());
-            //            Login login = new Login();
-            //            login.setVisible(true);
-            //            dispose();
-            //        } catch (Exception ex) {
-            //            Logger.getLogger(Incluir_Cliente.class.getName()).log(Level.SEVERE, null, ex);
-            //        }
+    	if(CRUDProjeto.exist(jTextAreaNome.getText())) {
+	    	projeto = CRUDProjeto.retrieve(jTextAreaNome.getText());
+	    	jLabelCampoLocal.setText(projeto.getLocal());
+	    	jLabelCampoDescricao.setText(projeto.getDescricao());
+	    	jLabelCampoObjetivo.setText(projeto.getObjetivo());
+	    	jLabelCampoJustificativa.setText(projeto.getJustificativa());
+	    	jLabelDemocratizacao.setText(projeto.getDemocratizacao());
+	    	jLabelCampoAcessibilidade.setText(projeto.getAcessibilidade());
+	    	jLabelCampoPublicoEstimado.setText(projeto.getPublicoEstimado()+"");
+	    	jLabelCampoOrcamento.setText(projeto.getOrcamento()+"");
+	    	jLabelCampoStatus.setText(projeto.getStatus()+"");
+    	}else {
+    		jLabelCampoLocal.setText("________________");
+    		jLabelCampoDescricao.setText("________________");
+    		jLabelCampoObjetivo.setText("________________");
+    		jLabelCampoJustificativa.setText("________________");
+    		jLabelCampoDemocratizacao.setText("________________");
+    		jLabelCampoAcessibilidade.setText("________________");
+    		jLabelCampoPublicoEstimado.setText("________________");
+    		jLabelCampoOrcamento.setText("________________");
+    		jLabelCampoStatus.setText("________________");
+	    	JOptionPane.showMessageDialog(null, "Projeto nao encontrado");
+    	}
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     /**

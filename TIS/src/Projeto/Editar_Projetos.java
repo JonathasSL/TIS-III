@@ -5,6 +5,14 @@
  */
 package Projeto;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
+import ArtManager.Main;
+import Cliente.Cliente;
+import Cliente.Cliente_CRUD;
+
 /**
  *
  * @author Projetos ES
@@ -77,9 +85,9 @@ public class Editar_Projetos extends javax.swing.JFrame {
 
         jTextFieldAcessibilidade.setText(projeto.getAcessibilidade());
 
-        jTextFieldPublicoEstimado.setText(projeto.getPublicoEstimado());
+        jTextFieldPublicoEstimado.setText(String.valueOf(projeto.getPublicoEstimado()));
 
-        jTextFieldOrcamento.setText(projeto.getOrcamento());
+        jTextFieldOrcamento.setText(String.valueOf(projeto.getOrcamento()));
         jTextFieldOrcamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldOrcamentoActionPerformed(evt);
@@ -141,8 +149,13 @@ public class Editar_Projetos extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(Status.values());
-        jComboBox1.setSelectedItem(status.name());
+        DefaultComboBoxModel dlm = new DefaultComboBoxModel();
+        Status[] s = Status.values();
+        for(int i=0; i<Status.values().length ;i++)
+        	dlm.addElement(s[i]);
+        
+        jComboBox1.setModel(dlm);
+        jComboBox1.setSelectedItem(projeto.getStatus().name());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -283,13 +296,17 @@ public class Editar_Projetos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jButtonCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarClienteActionPerformed
-        Cliente[] clientes = Cliente_CRUD.listarClientes(Main.arqClientes);
-        if(clientes!=null){
-            ListarClientes lc = new ListarClientes(clientes);
-            lc.setVisible(true);
-        }else{
-            JOptionPane.showConfirmDialog(null, "Nao existem clientes cadastrados");
-        }
+		try {
+	        Cliente[] clientes = Cliente_CRUD.listarClientes(Main.arqClientes);
+	        if(clientes!=null){
+	            ListarClientes lc = new ListarClientes();
+	            lc.setVisible(true);
+	        }else{
+	            JOptionPane.showConfirmDialog(null, "Nao existem clientes cadastrados");
+	        }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }//GEN-LAST:event_jButtonCadastrarClienteActionPerformed
 
     /**

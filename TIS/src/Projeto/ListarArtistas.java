@@ -5,21 +5,38 @@
  */
 package Projeto;
 
+import java.util.ArrayList;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
+import ArtManager.Main;
+import Artista.Artista;
+import Artista.Artista_CRUD;
+
 /**
  *
  * @author Jônathas Leandro
  */
 public class ListarArtistas extends javax.swing.JFrame {
 
-    Artista[] disponiveis;
+	ArrayList<Artista> disponiveis;
     ArrayList<Artista> incluidos;
     /**
      * Creates new form ListarArtistas
      */
-    public ListarArtistas(Artista[] artista) {
-        disponiveis = new Artista[artista.length];
-        disponiveis = artista;
-        initComponents();
+    public ListarArtistas() {
+		try {
+			Artista[] a = Artista_CRUD.listarArtistas(Main.arqArtistas);
+	    	for(int i=0; i<a.length ;i++)
+	    		disponiveis.add(a[i]);
+	        
+	    	initComponents();
+		} catch (Exception e) {
+//			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Nao foi possivel executar");
+		}
     }
 
     /**
@@ -62,8 +79,16 @@ public class ListarArtistas extends javax.swing.JFrame {
                 jButtonAdicionarActionPerformed(evt);
             }
         });
+        DefaultListModel dlm = new DefaultListModel();
+		try {
+	        Artista[] a = Artista_CRUD.listarArtistas(Main.arqArtistas);
+	        for(int i=0; i<a.length ;i++)
+	        	dlm.addElement(a[i]);
+		} catch (Exception e) {
+//			e.printStackTrace();
+		}
 
-        jListDisponiveis.setModel(Artista_CRUD.listarArtista(Main.arqArtista));
+        jListDisponiveis.setModel(dlm);
         jScrollPaneDisponiveis.setViewportView(jListDisponiveis);
 
         jLabelArtistasDisponiveis.setText("Artistas disponiveis:");
@@ -75,8 +100,11 @@ public class ListarArtistas extends javax.swing.JFrame {
         jTextFieldRemover.setText("Artista");
 
         jButtonRemover.setText("Remover");
-
-        jListIncluidos.setModel(incluidos.toArray());
+        dlm.clear();
+        for(Artista art : incluidos)
+        	dlm.addElement(art);
+        
+        jListIncluidos.setModel(dlm);
         jScrollPaneIncluidos.setViewportView(jListIncluidos);
 
         jButtonFinalizar.setText("Finalizar");
@@ -157,8 +185,15 @@ public class ListarArtistas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonFinalizarActionPerformed
 
     private void jButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarActionPerformed
-        // TODO add your handling code here:
-        disponiveis.add(jTextFieldAdicionar.getText());
+		try {
+			Artista a = Artista_CRUD.buscarArtista(jTextFieldAdicionar.getText(), Main.arqArtistas);
+	    	if(a!=null)
+	    		disponiveis.add(a);
+	    	else
+	    		JOptionPane.showMessageDialog(null, "Artista nao encontrado");
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Nao foi possivel executar");
+		}
     }//GEN-LAST:event_jButtonAdicionarActionPerformed
 
     /**

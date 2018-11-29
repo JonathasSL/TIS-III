@@ -5,12 +5,26 @@
  */
 package Projeto;
 
+import java.util.ArrayList;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
+import ArtManager.Main;
+import Artista.Artista;
+import Artista.Artista_CRUD;
+import Produto.Produto;
+import Produto.Produto_CRUD;
+
 /**
  *
  * @author Jônathas Leandro
  */
 public class ListarProdutos extends javax.swing.JFrame {
 
+	ArrayList<Produto> disponiveis;
+	ArrayList<Produto> incluidos;
     /**
      * Creates new form ListarProdutos
      */
@@ -69,8 +83,16 @@ public class ListarProdutos extends javax.swing.JFrame {
                 jButtonAdicionarActionPerformed(evt);
             }
         });
+        DefaultListModel dlm = new DefaultListModel();
+		try {
+	        Produto[] p = Produto_CRUD.listarProdutos(Main.arqProdutos);
+	        for(int i=0; i<p.length ;i++)
+	        	dlm.addElement(p[i]);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Nao foi possivel listar os produtos");
+		}
 
-        jListDisponiveis.setModel(Produto_CRUD.listarProdutos(Main.arqProdutos));
+        jListDisponiveis.setModel(dlm);
         jScrollPaneDisponiveis.setViewportView(jListDisponiveis);
 
         jLabelDisponiveis.setText("Produtos disponiveis:");
@@ -82,8 +104,13 @@ public class ListarProdutos extends javax.swing.JFrame {
         jTextFieldRemover.setText("Clientes");
 
         jButtonRemover.setText("Remover");
-
-        jListIncluidos.setModel(incluidos.toArray());
+        
+        dlm.clear();
+        for(Produto pr : incluidos)
+        	dlm.addElement(pr.getNome());
+        
+        
+        jListIncluidos.setModel(dlm);
         jScrollPaneIncluidos.setViewportView(jListIncluidos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,8 +191,15 @@ public class ListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonFinalizarActionPerformed
 
     private void jButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarActionPerformed
-        // TODO add your handling code here:
-        incluidos.add(jTextFieldAdicionar.getText());
+    	try {
+			Produto p = Produto_CRUD.buscarProduto(jTextFieldAdicionar.getText(), Main.arqProdutos);
+	    	if(p!=null)
+	    		disponiveis.add(p);
+	    	else
+	    		JOptionPane.showMessageDialog(null, "Produto nao encontrado");
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Nao foi possivel executar");
+		}
     }//GEN-LAST:event_jButtonAdicionarActionPerformed
 
     /**
