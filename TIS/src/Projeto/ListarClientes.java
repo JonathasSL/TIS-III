@@ -88,7 +88,8 @@ public class ListarClientes extends javax.swing.JFrame {
         jTextFieldRemover.setText("Clientes");
 
         jButtonRemover.setText("Remover");
-
+        
+        dlm.clear();
         for(Cliente c : incluidos)
         	dlm.addElement(c.getNome());
 
