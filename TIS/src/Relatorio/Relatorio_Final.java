@@ -3,6 +3,8 @@ package Relatorio;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import Projeto.Projeto;
 import Projeto.CRUDProjeto;
 import Relatorio.RelatorioUI;
@@ -110,9 +112,6 @@ public class Relatorio_Final {
 
 		new RelatorioUI(p);
 	}
-
-
-
 
 
 
