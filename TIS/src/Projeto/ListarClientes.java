@@ -9,6 +9,7 @@ import java.awt.List;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
@@ -24,7 +25,7 @@ import Cliente.Cliente_CRUD;
 public class ListarClientes extends javax.swing.JFrame {
 	JList lDisponiveis = new JList();
 	
-    Cliente[] disponiveis = Cliente_CRUD.listarClientes(Main.arqClientes);
+    Cliente[] disponiveis;
     ArrayList<Cliente> incluidos = new ArrayList<>();
     /**
      * Creates new form ListarClientes
@@ -70,10 +71,14 @@ public class ListarClientes extends javax.swing.JFrame {
 
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabelTitulo.setText("Clientes Disponiveis");
-
-        jListDisponiveis.setModel(lDisponiveis);
+        
+        DefaultListModel dlm = new DefaultListModel();
+        for(int i=0; i<disponiveis.length ;i++)
+        	dlm.addElement(disponiveis[i].getNome());
+        
+        jListDisponiveis.setModel(dlm);
         jScrollPaneDisponiveis.setViewportView(jListDisponiveis);
-
+        dlm.clear();
         jLabelArtistasDisponiveis.setText("Clientes disponiveis:");
 
         jLabelArtistasDisponiveis1.setText("Clientes incluidos:");
@@ -83,9 +88,11 @@ public class ListarClientes extends javax.swing.JFrame {
         jTextFieldRemover.setText("Clientes");
 
         jButtonRemover.setText("Remover");
-//        ListModel l = new ListModel();
-//        l.
-        jListIncluidos.setModel(incluidos.toArray());
+
+        for(Cliente c : incluidos)
+        	dlm.addElement(c.getNome());
+
+        jListIncluidos.setModel(dlm);
         jScrollPaneIncluidos.setViewportView(jListIncluidos);
 
         jLabelAdicionar.setText("Cliente a adicionar:");

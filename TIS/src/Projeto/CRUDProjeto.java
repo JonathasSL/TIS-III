@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
 
+import Artista.Artista;
+import Produto.Produto;
+
 
 
 
@@ -20,8 +23,7 @@ public abstract class CRUDProjeto {
 	private static final String NOME_ARQUIVO = "projects";
 
 	//retorna true se foi possivel criar o projeto false se nao foi possivel
-	public static boolean create(String nome, String local, String descricao, String objetivo,
-			String resumo, String justificativa, String democratizacao, String acessibilidade, int publicoEstimado, float orcamento) {
+	public static boolean create(String nome, String local, String descricao, String objetivo, String resumo, String justificativa, String democratizacao, String acessibilidade, int publicoEstimado, float orcamento, String cliente) {
 		try {
 			FileOutputStream file = new FileOutputStream(NOME_ARQUIVO,true);
 			PrintStream output = new PrintStream(file);
@@ -55,8 +57,7 @@ public abstract class CRUDProjeto {
 		return false;
 	}
 
-	public static boolean create(String nome, String local, String descricao, String objetivo,
-			String resumo, String justificativa, String democratizacao, String acessibilidade, String publicoEstimado, String orcamento) {
+	public static boolean create(String nome, String local, String descricao, String objetivo, String resumo, String justificativa, String democratizacao, String acessibilidade, String publicoEstimado, String orcamento, String cliente, ArrayList<String> artistas, ArrayList<String> produtos) {
 		try {
 			FileOutputStream file = new FileOutputStream(NOME_ARQUIVO,true);
 			PrintStream output = new PrintStream(file);
@@ -71,6 +72,10 @@ public abstract class CRUDProjeto {
 			projeto.setAcessibilidade(acessibilidade);
 			projeto.setPublicoEstimado(Integer.parseInt(publicoEstimado));
 			projeto.setOrcamento(Float.parseFloat(orcamento));
+			projeto.setCliente(cliente);
+			projeto.setArtistas(artistas);
+			projeto.setProdutos(produtos);
+			
 
 
 			if(!exist(projeto)) {
@@ -244,11 +249,10 @@ public abstract class CRUDProjeto {
 		}
 	}
 
-	public static boolean update(Projeto projeto,String nome, String local, String descricao, String objetivo,
-			String resumo, String justificativa, String democratizacao, String acessibilidade, int publicoEstimado, float orcamento) {
+	public static boolean update(Projeto projeto,String nome, String local, String descricao, String objetivo, String resumo, String justificativa, String democratizacao, String acessibilidade, String publicoEstimado, String orcamento, String cliente, ArrayList<String> artistas, ArrayList<String> produtos) {
 		if(exist(projeto)) {
 			delete(projeto);
-			return create(nome,local,descricao,objetivo,resumo,justificativa,democratizacao,acessibilidade,publicoEstimado,orcamento);
+			return create(nome,local,descricao,objetivo,resumo,justificativa,democratizacao,acessibilidade,publicoEstimado,orcamento,cliente,artistas,produtos);
 		}
 		return false;
 	}

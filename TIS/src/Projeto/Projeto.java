@@ -112,7 +112,7 @@ public class Projeto {
 	@Override
 	public String toString() {
 		return nome + ";" + local + ";" + descricao + ";" + objetivo + ";" + resumo + ";" + justificativa + ";" + democratizacao
-				+ ";" + acessibilidade + ";" + publicoEstimado + ";" + orcamento + ";" + status + ";" + cliente + ";" + getProdutosString();
+				+ ";" + acessibilidade + ";" + publicoEstimado + ";" + orcamento + ";" + status + ";" + cliente + ";" +  getArtistasString() + ";" +getProdutosString();
 	}
 
 
@@ -125,8 +125,8 @@ public class Projeto {
 
 	public String getProdutosString() {
 		StringBuilder sb = new StringBuilder();
-		for(String p : produtos)
-			sb.append(p+"|");
+		for(String s : produtos)
+			sb.append(s+"|");
 		return sb.toString();
 	}
 	public ArrayList<String> getProdutos() {
@@ -143,6 +143,12 @@ public class Projeto {
 		return produtos.remove(produto);
 	}
 
+	public String getArtistasString() {
+		StringBuilder sb = new StringBuilder();
+		for(String s : artistas)
+			sb.append(s+"|");
+		return sb.toString();
+	}
 	public ArrayList<String> getArtistas() {
 		return artistas;
 	}
