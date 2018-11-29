@@ -6,21 +6,30 @@
 package Relatorio;
 
 import javax.swing.JOptionPane;
+
+import ArtManager.Arquivo;
 import ArtManager.Main;
 import ArtManager.Menu;
 import Login.Login;
 import Projeto.Buscar_Projetos;
 import Projeto.CRUDProjeto;
 import Projeto.Projeto;
-
+import java.util.ArrayList;
+import Produto.Buscar_Produto;
+import Produto.Produto;
+import Produto.Produto_CRUD;
 
 public class RelatorioUI extends javax.swing.JFrame {
-
-
+	private Projeto projeto;
+	private float orcamento;
+	private int i, size;
+	private String produtoNome;
+	private Produto produto;
+	
 	public RelatorioUI(Projeto dados) {
-		dados = CRUDProjeto.retrieve("Teste");
+	//	dados = CRUDProjeto.retrieve("Teste");
 		initComponents(dados);
-	}
+		projeto = dados; }
 
 
 	@SuppressWarnings("unchecked")
@@ -44,13 +53,13 @@ public class RelatorioUI extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Relatório Final de Projeto");
+        jLabel1.setText("Relatório Orçamentario de Projeto");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
             	{"NOME:", dados.getNome()},
-                {"ORCAMENTO:", dados.getOrcamento()},
-                {"DESPESA:", ""}
+                {"ORCAMENTO ESTIMADO:", dados.getOrcamento()},
+                {"DESPESA:", orcamento}
             },
             new String [] {
                 " ", " "
@@ -91,7 +100,22 @@ public class RelatorioUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+	
+	private void calculaOrcamento (Projeto projeto)  {
+    	size = projeto.getProdutos().size();
+    	for (i=0;i<size;i++) {
+    									
+    		produtoNome = projeto.getProdutosString();
+    		try {
+				produto = Produto_CRUD.buscarProduto(produtoNome, Main.arqProdutos);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+ 			orcamento += Float.parseFloat(produto.getPreco());							
+        	
+    	}
+    }
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 		Buscar_Projetos b = new Buscar_Projetos();             
         b.setVisible(true);
@@ -139,4 +163,7 @@ public class RelatorioUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    
+
 }
