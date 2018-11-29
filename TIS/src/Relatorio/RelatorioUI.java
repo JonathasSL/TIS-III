@@ -58,8 +58,8 @@ public class RelatorioUI extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
             	{"NOME:", dados.getNome()},
-                {"ORCAMENTO ESTIMADO:", dados.getOrcamento()},
-                {"DESPESA:", orcamento}
+                {"ORCAMENTO ESTIMADO:", String.valueOf(dados.getOrcamento())},
+                {"DESPESA:", String.valueOf(orcamento)}
             },
             new String [] {
                 " ", " "
