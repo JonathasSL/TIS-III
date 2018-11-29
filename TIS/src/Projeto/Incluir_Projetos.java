@@ -5,18 +5,25 @@
  */
 package Projeto;
 
+import java.util.ArrayList;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 import ArtManager.Main;
+import Artista.Artista;
 import Cliente.Cliente;
 import Cliente.Cliente_CRUD;
+import Produto.Produto;
 
 /**
  *
  * @author Projetos ES
  */
 public class Incluir_Projetos extends javax.swing.JFrame {
+	
+	ArrayList<Artista> aIncluidos;
+	ArrayList<Produto> pIncluidos;
 
     /**
      * Creates new form Incluir_Fornecedores
@@ -42,7 +49,7 @@ public class Incluir_Projetos extends javax.swing.JFrame {
         jTextFieldDescricao = new javax.swing.JTextField();
         jLabelObjetivo = new javax.swing.JLabel();
         jTextFieldObjetivo = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButtonCadastrar = new javax.swing.JButton();
         jTextFieldLocal = new javax.swing.JTextField();
         jLabelLocal = new javax.swing.JLabel();
         jLabelJustificativa = new javax.swing.JLabel();
@@ -56,13 +63,13 @@ public class Incluir_Projetos extends javax.swing.JFrame {
         jTextFieldAcessibilidade = new javax.swing.JTextField();
         jTextFieldPublicoEstimado = new javax.swing.JTextField();
         jTextFieldOrcamento = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        jButtonVoltar = new javax.swing.JButton();
         jLabelCliente = new javax.swing.JLabel();
         jLabelArtista = new javax.swing.JLabel();
         jButtonCadastrarArtistas = new javax.swing.JButton();
         jLabelProdutos = new javax.swing.JLabel();
         jButtonCadastrarProdutos = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxCliente = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,8 +94,8 @@ public class Incluir_Projetos extends javax.swing.JFrame {
 
         jTextFieldObjetivo.setText("Objetivo");
 
-        jButton1.setText("Incluir ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCadastrar.setText("Incluir ");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
@@ -125,7 +132,12 @@ public class Incluir_Projetos extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Voltar");
+        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
 
         jLabelCliente.setText("Cliente:");
 
@@ -143,8 +155,6 @@ public class Incluir_Projetos extends javax.swing.JFrame {
         jButtonCadastrarProdutos.setText("Cadastrar");
 
         DefaultComboBoxModel dlm = new DefaultComboBoxModel();
-        
-        
 		try {
 	        Cliente[] c = Cliente_CRUD.listarClientes(Main.arqClientes);
 	        for(int i=0; i<c.length ;i++)
@@ -152,11 +162,7 @@ public class Incluir_Projetos extends javax.swing.JFrame {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Nao foi possivel listar os clientes");
 		}
-        
-        
-        
-        
-        jComboBox1.setModel(dlm);
+        jComboBoxCliente.setModel(dlm);
 
         dlm = new DefaultComboBoxModel();
         Status[] s = Status.values();
@@ -172,11 +178,11 @@ public class Incluir_Projetos extends javax.swing.JFrame {
                 .addContainerGap(220, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(108, 108, 108)
-                .addComponent(jButton2)
+                .addComponent(jButtonVoltar)
                 .addGap(85, 85, 85))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(274, 274, 274)
-                .addComponent(jButton1))
+                .addComponent(jButtonCadastrar))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(135, 135, 135)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +212,7 @@ public class Incluir_Projetos extends javax.swing.JFrame {
                     .addComponent(jTextFieldOrcamento)
                     .addComponent(jButtonCadastrarArtistas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonCadastrarProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -214,7 +220,7 @@ public class Incluir_Projetos extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(jButtonVoltar)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -223,7 +229,7 @@ public class Incluir_Projetos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCliente)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,7 +275,7 @@ public class Incluir_Projetos extends javax.swing.JFrame {
                     .addComponent(jLabelProdutos)
                     .addComponent(jButtonCadastrarProdutos))
                 .addGap(34, 34, 34)
-                .addComponent(jButton1)
+                .addComponent(jButtonCadastrar)
                 .addGap(14, 14, 14))
         );
 
@@ -292,14 +298,11 @@ public class Incluir_Projetos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        try {
-//            Cliente_CRUD.incluirCliente(this.txnome.getText(),this.txtelefone.getText(),this.txemail.getText());
-//            Login login = new Login();
-//            login.setVisible(true);
-//            dispose();
-//        } catch (Exception ex) {
+        try {
+        	
+        } catch (Exception ex) {
 //            Logger.getLogger(Incluir_Cliente.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextFieldDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoActionPerformed
@@ -314,6 +317,11 @@ public class Incluir_Projetos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonCadastrarArtistasActionPerformed
 
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {
+    	Menu_Projetos m = new Menu_Projetos();
+    	m.setVisible(true);
+    	dispose();
+    }
     /**
      * @param args the command line arguments
      */
@@ -351,11 +359,11 @@ public class Incluir_Projetos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonCadastrar;
+    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JButton jButtonCadastrarArtistas;
     private javax.swing.JButton jButtonCadastrarProdutos;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBoxCliente;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelAcessibilidade;
