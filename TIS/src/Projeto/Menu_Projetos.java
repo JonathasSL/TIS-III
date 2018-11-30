@@ -13,6 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import ArtManager.Main;
 import ArtManager.Menu;
 import Login.Usuario;
 
@@ -339,9 +340,9 @@ public class Menu_Projetos extends javax.swing.JFrame {
 
     //botao voltar
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt/*, Usuario user*/) {//GEN-FIRST:event_jButton6ActionPerformed
-//        Menu m=new Menu(/*user.getUserName()*/);
-//        m.setVisible(true);
-//        dispose();
+        Menu m=new Menu(Main.usuario);
+        m.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
     
     //botao listar

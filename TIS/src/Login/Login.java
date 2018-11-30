@@ -3,6 +3,7 @@ package Login;
 
 import javax.swing.JOptionPane;
 
+import ArtManager.Main;
 import ArtManager.Menu;
 import Cliente.Cliente_CRUD;
 import Cliente.Excluir_Cliente;
@@ -152,6 +153,7 @@ public class Login extends javax.swing.JFrame {
     private void BentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BentrarActionPerformed
     	Usuario user = new Usuario(txlogin.getText(),jPasswordField1.getText(),UserCreation.CREATE);
     	nome = txlogin.getText();
+    	Main.usuario = nome;
     	if(CRUDUsuario.exist(user)) {
 			if(user.equals(CRUDUsuario.retrieve(user))) {
 				Menu m=new Menu(nome);

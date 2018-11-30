@@ -21,22 +21,51 @@ import Artista.Artista_CRUD;
  */
 public class ListarArtistas extends javax.swing.JFrame {
 
-	ArrayList<Artista> disponiveis;
+	Artista[] disponiveis;
     ArrayList<Artista> incluidos;
     /**
      * Creates new form ListarArtistas
      */
-    public ListarArtistas() {
-		try {
-			Artista[] a = Artista_CRUD.listarArtistas(Main.arqArtistas);
-	    	for(int i=0; i<a.length ;i++)
-	    		disponiveis.add(a[i]);
-	        
-	    	initComponents();
-		} catch (Exception e) {
-//			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Nao foi possivel executar");
-		}
+    //ArrayList<Artista> disponiveis
+//    public ListarArtistas() {
+//    	Artista[] artistas = null;
+//		try {
+//			artistas = Artista_CRUD.listarArtistas(Main.arqArtistas);
+//			for(int i=0; i<artistas.length ;i++)
+//	    		disponiveis.add(artistas[i]);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+////			e.printStackTrace();
+//			JOptionPane.showMessageDialog(null, "Nao foi possivel executar");
+//		}
+//		initComponents();
+////		try {
+////			Artista[] a = Artista_CRUD.listarArtistas(Main.arqArtistas);
+////	    	for(int i=0; i<a.length ;i++)
+////	    		disponiveis.add(a[i]);
+////	        
+////	    	initComponents();
+////		} catch (Exception e) {
+//////			e.printStackTrace();
+////			JOptionPane.showMessageDialog(null, "Nao foi possivel executar");
+////		}
+//    }
+    public ListarArtistas(Artista[] disponiveis) {
+    	disponiveis = disponiveis;
+//		for(int i=0; i<disponiveis.length ;i++)
+//    		this.disponiveis.add(disponiveis[i]);
+//    	this.disponiveis = disponiveis;
+		initComponents();
+//		try {
+//			Artista[] a = Artista_CRUD.listarArtistas(Main.arqArtistas);
+//	    	for(int i=0; i<a.length ;i++)
+//	    		disponiveis.add(a[i]);
+//	        
+//	    	initComponents();
+//		} catch (Exception e) {
+////			e.printStackTrace();
+//			JOptionPane.showMessageDialog(null, "Nao foi possivel executar");
+//		}
     }
 
     /**

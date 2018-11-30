@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 
 import ArtManager.Main;
 import Artista.Artista;
+import Artista.Artista_CRUD;
+import Artista.ListarArtista;
 import Cliente.Cliente;
 import Cliente.Cliente_CRUD;
 import Produto.Produto;
@@ -89,7 +91,7 @@ public class Incluir_Projetos extends javax.swing.JFrame {
                 jTextFieldDescricaoActionPerformed(evt);
             }
         });
-
+        
         jLabelObjetivo.setText("Objetivo:");
 
         jTextFieldObjetivo.setText("Objetivo");
@@ -97,7 +99,7 @@ public class Incluir_Projetos extends javax.swing.JFrame {
         jButtonCadastrar.setText("Incluir ");
         jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonCadastrarActionPerformed(evt);
             }
         });
 
@@ -154,6 +156,12 @@ public class Incluir_Projetos extends javax.swing.JFrame {
 
         jButtonCadastrarProdutos.setText("Cadastrar");
 
+        jButtonCadastrarProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarProdutoActionPerformed(evt);
+            }
+        });
+
         DefaultComboBoxModel dlm = new DefaultComboBoxModel();
 		try {
 	        Cliente[] c = Cliente_CRUD.listarClientes(Main.arqClientes);
@@ -169,6 +177,8 @@ public class Incluir_Projetos extends javax.swing.JFrame {
         for(int i=0; i<s.length ;i++)
         dlm.addElement(s[i].name());
         jComboBox2.setModel(dlm);
+        
+
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -297,8 +307,28 @@ public class Incluir_Projetos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
+        	Projeto p = new Projeto(jTextFieldNome.getText());
+        	p.setCliente(jComboBoxCliente.getSelectedItem().toString());
+        	p.setLocal(jTextFieldLocal.getText());
+        	p.setDescricao(jTextFieldDescricao.getText());
+        	p.setObjetivo(jTextFieldObjetivo.getText());
+        	p.setJustificativa(jTextFieldJustificativa.getText());
+        	p.setDemocratizacao(jTextFieldDemocratizacao.getText());
+        	p.setAcessibilidade(jTextFieldAcessibilidade.getText());
+        	p.setPublicoEstimado(Integer.parseInt(jTextFieldPublicoEstimado.getText()));
+        	p.setOrcamento(Float.parseFloat(jTextFieldOrcamento.getText()));
+        	p.setStats(jComboBox2.getSelectedItem().toString());
+        	
+        	if(CRUDProjeto.create(p)) {
+        	Menu_Projetos m = new Menu_Projetos();
+        	m.setVisible(true);
+        	dispose();
+        	JOptionPane.showMessageDialog(null, "Projeto criado");
+        	} else {
+        		JOptionPane.showMessageDialog(null, "Nao foi possivel criar o projeto");
+        	}
         	
         } catch (Exception ex) {
 //            Logger.getLogger(Incluir_Cliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -313,8 +343,20 @@ public class Incluir_Projetos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldOrcamentoActionPerformed
 
+    private void jButtonCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {
+    	ListarProdutos lp = new ListarProdutos();
+    	lp.setVisible(true);
+    }
+    
     private void jButtonCadastrarArtistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarArtistasActionPerformed
-        // TODO add your handling code here:
+    	ListarArtistas la;
+		try {
+			la = new ListarArtistas(Artista_CRUD.listarArtistas(Main.arqArtistas));
+	    	la.setVisible(true);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }//GEN-LAST:event_jButtonCadastrarArtistasActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {

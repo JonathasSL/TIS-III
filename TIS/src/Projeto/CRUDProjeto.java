@@ -56,6 +56,40 @@ public abstract class CRUDProjeto {
 		}
 		return false;
 	}
+	
+	public static boolean create(Projeto p) {
+		try {
+			FileOutputStream file = new FileOutputStream(NOME_ARQUIVO,true);
+			PrintStream output = new PrintStream(file);
+
+//			Projeto projeto = new Projeto(nome);
+//			projeto.setLocal(local);
+//			projeto.setDescricao(descricao);
+//			projeto.setObjetivo(objetivo);
+//			projeto.setResumo(resumo);
+//			projeto.setJustificativa(justificativa);
+//			projeto.setDemocratizacao(democratizacao);
+//			projeto.setAcessibilidade(acessibilidade);
+//			projeto.setPublicoEstimado(publicoEstimado);
+//			projeto.setOrcamento(orcamento);
+
+
+			if(!exist(p)) {
+				output.println(p);
+				output.close();
+				file.close();
+				return true;
+			}
+
+			output.close();
+			file.close();
+		} catch(FileNotFoundException e) {
+			return false;
+		} catch (IOException e) {
+			return false;
+		}
+		return false;
+	}
 
 	public static boolean create(String nome, String local, String descricao, String objetivo, String resumo, String justificativa, String democratizacao, String acessibilidade, String publicoEstimado, String orcamento, String cliente, ArrayList<String> artistas, ArrayList<String> produtos) {
 		try {

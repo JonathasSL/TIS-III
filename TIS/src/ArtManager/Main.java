@@ -13,6 +13,7 @@ public class Main {
     public static Arquivo<Artista> arqArtistas;
     public static Arquivo<Fornecedor> arqFornecedores;
     public static Arquivo<Produto> arqProdutos;
+    public static String usuario;
     
 	public static void main(String[] args) {
 		
