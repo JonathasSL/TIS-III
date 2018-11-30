@@ -99,7 +99,7 @@ public class Incluir_Projetos extends javax.swing.JFrame {
         jButtonCadastrar.setText("Incluir ");
         jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonCadastrarActionPerformed(evt);
             }
         });
 
@@ -307,8 +307,28 @@ public class Incluir_Projetos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
+        	Projeto p = new Projeto(jTextFieldNome.getText());
+        	p.setCliente(jComboBoxCliente.getSelectedItem().toString());
+        	p.setLocal(jTextFieldLocal.getText());
+        	p.setDescricao(jTextFieldDescricao.getText());
+        	p.setObjetivo(jTextFieldObjetivo.getText());
+        	p.setJustificativa(jTextFieldJustificativa.getText());
+        	p.setDemocratizacao(jTextFieldDemocratizacao.getText());
+        	p.setAcessibilidade(jTextFieldAcessibilidade.getText());
+        	p.setPublicoEstimado(Integer.parseInt(jTextFieldPublicoEstimado.getText()));
+        	p.setOrcamento(Float.parseFloat(jTextFieldOrcamento.getText()));
+        	p.setStats(jComboBox2.getSelectedItem().toString());
+        	
+        	if(CRUDProjeto.create(p)) {
+        	Menu_Projetos m = new Menu_Projetos();
+        	m.setVisible(true);
+        	dispose();
+        	JOptionPane.showMessageDialog(null, "Projeto criado");
+        	} else {
+        		JOptionPane.showMessageDialog(null, "Nao foi possivel criar o projeto");
+        	}
         	
         } catch (Exception ex) {
 //            Logger.getLogger(Incluir_Cliente.class.getName()).log(Level.SEVERE, null, ex);

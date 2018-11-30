@@ -8,6 +8,8 @@ package Projeto;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
+import Relatorio.RelatorioUI;
+
 /**
  *
  * @author Projetos ES
@@ -129,6 +131,11 @@ public class Buscar_Projetos extends javax.swing.JFrame {
         });
 
         jButton5.setText("Relatorio");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jLabelCampoStatus.setText("________________");
 
@@ -316,7 +323,11 @@ public class Buscar_Projetos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+    	RelatorioUI r = new RelatorioUI(projeto);
+    	r.setVisible(true);
+    }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed

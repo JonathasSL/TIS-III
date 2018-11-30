@@ -27,32 +27,33 @@ public class ListarArtistas extends javax.swing.JFrame {
      * Creates new form ListarArtistas
      */
     //ArrayList<Artista> disponiveis
-    public ListarArtistas() {
-    	Artista[] artistas = null;
-		try {
-			artistas = Artista_CRUD.listarArtistas(Main.arqArtistas);
-			for(int i=0; i<artistas.length ;i++)
-	    		disponiveis.add(artistas[i]);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-//			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Nao foi possivel executar");
-		}
-		initComponents();
+//    public ListarArtistas() {
+//    	Artista[] artistas = null;
 //		try {
-//			Artista[] a = Artista_CRUD.listarArtistas(Main.arqArtistas);
-//	    	for(int i=0; i<a.length ;i++)
-//	    		disponiveis.add(a[i]);
-//	        
-//	    	initComponents();
+//			artistas = Artista_CRUD.listarArtistas(Main.arqArtistas);
+//			for(int i=0; i<artistas.length ;i++)
+//	    		disponiveis.add(artistas[i]);
 //		} catch (Exception e) {
+//			// TODO Auto-generated catch block
 ////			e.printStackTrace();
 //			JOptionPane.showMessageDialog(null, "Nao foi possivel executar");
 //		}
-    }
+//		initComponents();
+////		try {
+////			Artista[] a = Artista_CRUD.listarArtistas(Main.arqArtistas);
+////	    	for(int i=0; i<a.length ;i++)
+////	    		disponiveis.add(a[i]);
+////	        
+////	    	initComponents();
+////		} catch (Exception e) {
+//////			e.printStackTrace();
+////			JOptionPane.showMessageDialog(null, "Nao foi possivel executar");
+////		}
+//    }
     public ListarArtistas(Artista[] disponiveis) {
-		for(int i=0; i<disponiveis.length ;i++)
-    		this.disponiveis.add(disponiveis[i]);
+    	disponiveis = disponiveis;
+//		for(int i=0; i<disponiveis.length ;i++)
+//    		this.disponiveis.add(disponiveis[i]);
 //    	this.disponiveis = disponiveis;
 		initComponents();
 //		try {
